@@ -6,38 +6,47 @@ public class Vehicle {
     float EngineSize;
     boolean UsesGasoline;
 
+    //Sets type of vehicle.
     public void setType(String data){
         Type = data;
     }
 
+    //Sets the number of wheels for said vehicle.
     public void  setNumberOfWheels(int numWheels){
         NumberOfWheels = numWheels;
     }
 
+    //Sets the size of the engine for said vehicle.
     public void setEngineSize(float engine){
         EngineSize = engine;
     }
 
+    //Sets whether or not the vehicle uses gasoline.
     public void setUsesGasoline(boolean gasoline){
         UsesGasoline = gasoline;
     }
 
+    //Gets type of vehicle.
     public String getType(String data){
         return Type;
     }
 
+    //Gets the number of wheels for said vehicle.
     public int  getNumberOfWheels(int numWheels){
         return NumberOfWheels;
     }
 
+    //Gets the size of the engine for said vehicle.
     public float getEngineSize(float engine){
         return EngineSize;
     }
 
+    //Gets whether or not the vehicle uses gasoline.
     public boolean getUsesGasoline(boolean gasoline){
         return UsesGasoline;
     }
 
+    //Prints the information about the vehicle.
     public void print() {
         System.out.println("Type: " + Type);
         System.out.println("Number of Wheels: " + NumberOfWheels);
