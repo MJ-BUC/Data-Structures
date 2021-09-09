@@ -1,4 +1,4 @@
-//Mark Bucaro / A program that creates and dsplays the vehicles.
+//Mark Bucaro / A program that creates and dsplays the vehicles and their specs.
 
 package vehicle;
 
