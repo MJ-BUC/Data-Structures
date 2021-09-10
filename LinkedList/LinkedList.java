@@ -18,11 +18,11 @@ public int size() {
 }
 
 public boolean isEmpty() {
-    if (size() == 0) {
-        return true;
+    if (size() == 0) {                  //check if size of inked list is equal to 0
+        return true;                    //true if 0
     } 
     else {
-        return false;
+        return false;                   //false if not 0
     }
 }
 
