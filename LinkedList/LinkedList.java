@@ -4,7 +4,7 @@ package LinkedList;
 public class LinkedList {
 
 private MyNode head;
-}
+
 
 public int size() {
     MyNode cursor = head;               //set cursor to head so we can traverse
@@ -61,6 +61,17 @@ public void remove() {
         cursor = cursor.getNext();
     }
 }
+
+public void print() {
+    MyNode cursor = head;
+    int count = 0;
+    while (cursor != null) {
+        count ++;
+        System.out.print(cursor);
+        cursor = cursor.getNext();
+    }
+}
 public static void main(String[] args) {
     
+    }
 }
