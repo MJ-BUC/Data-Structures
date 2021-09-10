@@ -4,7 +4,7 @@ package LinkedList;
 public class LinkedList {
 
 private MyNode head;
-
+private MyNode node;
 
 public int size() {
     MyNode cursor = head;               //set cursor to head so we can traverse
@@ -26,52 +26,43 @@ public boolean isEmpty() {
     }
 }
 
-public void add() {
+public void add(int num) {
     MyNode cursor = head;
-    int count = 0;
     while (cursor != null) {
-        count ++;
         cursor = cursor.getNext();
     }
+
 }
 
 public void insert() {
     MyNode cursor = head;
-    int count = 0;
     while (cursor != null) {
-        count ++;
         cursor = cursor.getNext();
     }
 }
 
 public void delete() {
     MyNode cursor = head;
-    int count = 0;
     while (cursor != null) {
-        count ++;
         cursor = cursor.getNext();
     }
 }
 
 public void remove() {
     MyNode cursor = head;
-    int count = 0;
     while (cursor != null) {
-        count ++;
         cursor = cursor.getNext();
     }
 }
 
 public void print() {
     MyNode cursor = head;
-    int count = 0;
     while (cursor != null) {
-        count ++;
         System.out.print(cursor);
         cursor = cursor.getNext();
     }
 }
 public static void main(String[] args) {
-    
+
     }
 }
