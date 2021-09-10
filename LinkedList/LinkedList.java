@@ -34,21 +34,21 @@ public void add(int num) {
 
 }
 
-public void insert() {
+public void insert(int num, int pos) {
     MyNode cursor = head;
     while (cursor != null) {
         cursor = cursor.getNext();
     }
 }
 
-public void delete() {
+public void delete(int pos) {
     MyNode cursor = head;
     while (cursor != null) {
         cursor = cursor.getNext();
     }
 }
 
-public void remove() {
+public void remove(int num) {
     MyNode cursor = head;
     while (cursor != null) {
         cursor = cursor.getNext();
