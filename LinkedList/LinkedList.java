@@ -47,14 +47,12 @@ public class LinkedList {
         MyNode cursor = head;                     //cursor used to traverse to position
         int count = 0;                            //counter 
         if (pos == 0) {
-            if (isEmpty() == true) {
-                node.setNext(cursor.getNext());
-                cursor.setNext(node);
-            }
+            node.setNext(cursor.getNext());
+            head = node;
         }
         else{
         
-            while (count < pos -1 && cursor != null) {                  //loop until the previous node in the linked list
+            while (count < pos -1 && cursor != null) {         //loop until the previous node in the linked list
                 cursor = cursor.getNext();
                 count++;
             }
@@ -92,6 +90,8 @@ public class LinkedList {
         mylist.add(3);
         mylist.add(7);
         mylist.add(8);
+        mylist.insert(9, 3);
+        mylist.insert(2, 0);
         mylist.print();
     }
 }
