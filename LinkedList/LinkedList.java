@@ -25,10 +25,10 @@ public boolean isEmpty() {
     }
 }
 
-public void add(int num) {
-    MyNode node = new MyNode(num);
+public void add(int num) {                  //passing num, for any integer, to the method
+    MyNode node = new MyNode(num);          //creating new node and setting num to it
     
-    MyNode cursor = head;
+    MyNode cursor = head;                   //start the cursor at the head
     while (cursor != null) {
         cursor = cursor.getNext();
         cursor.setNext(node);
@@ -37,7 +37,9 @@ public void add(int num) {
 
 public void insert(int num, int pos) {
     MyNode cursor = head;
-    while (cursor != null) {
+    int count = 0;
+    while (count != pos) {
+        count++;
         cursor = cursor.getNext();
     }
 }
