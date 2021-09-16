@@ -70,9 +70,13 @@ public class LinkedList {
 
     public void remove(int num) {
         MyNode cursor = head;
+        MyNode cursor2 = head;
+        int count = 0;
         while (cursor != null) {
             cursor = cursor.getNext();
+            int value = cursor.getData();
         }
+        int value = cursor.getData();
     }
 
     public void print() {
