@@ -61,18 +61,27 @@ public class LinkedList {
         }
     }
 
-    public void delete(int pos) {
+    public void delete(int pos) {           //add removing at the head
         MyNode cursor = head;
-        while (cursor != null) {
+        MyNode cursor2 = head.getNext();
+        int count = 0;
+
+        while (count != pos - 1) {
             cursor = cursor.getNext();
+            cursor2 = cursor2.getNext();
+            count++;
+            if (count == pos - 1) {
+                cursor.setNext(cursor2.getNext());
+                cursor2.setNext(null);
+            }
         }
     }
 
-    public void remove(int num) {
+    public void remove(int num) {                  //add rmoving at the head
         MyNode cursor = head;
         MyNode cursor2 = head.getNext();
         int value;
-        
+
         while (cursor2.getData() != num) {
             cursor = cursor.getNext();
             cursor2 = cursor2.getNext();
@@ -100,9 +109,15 @@ public class LinkedList {
         mylist.add(7);
         mylist.add(4);
         mylist.add(8);
+
         mylist.insert(9, 3);
         mylist.insert(2, 0);
+
+        mylist.remove(8);
         mylist.remove(4);
+
+        mylist.delete(2);
+
         mylist.print();
     }
 }
