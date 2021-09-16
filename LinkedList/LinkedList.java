@@ -47,7 +47,7 @@ public class LinkedList {
         MyNode cursor = head;                     //cursor used to traverse to position
         int count = 0;                            //counter 
         if (pos == 0) {
-            node.setNext(cursor.getNext());
+            node.setNext(cursor);
             head = node;
         }
         else{
