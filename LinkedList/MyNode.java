@@ -17,6 +17,7 @@ public class MyNode {
 	public void setData(int data) {
 		nodeData = data;	//set node's data
 	}
+	
 	public MyNode getNext() {
 		return next;	//return node's next pointer
 	}

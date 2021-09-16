@@ -4,7 +4,6 @@ package LinkedList;
 public class LinkedList {
 
 private MyNode head;
-private MyNode node;
 
 public int size() {
     MyNode cursor = head;               //set cursor to head so we can traverse
@@ -27,11 +26,13 @@ public boolean isEmpty() {
 }
 
 public void add(int num) {
+    MyNode node = new MyNode(num);
+    
     MyNode cursor = head;
     while (cursor != null) {
         cursor = cursor.getNext();
+        cursor.setNext(node);
     }
-
 }
 
 public void insert(int num, int pos) {
@@ -63,6 +64,6 @@ public void print() {
     }
 }
 public static void main(String[] args) {
-
+        
     }
 }
