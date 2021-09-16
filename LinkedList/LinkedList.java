@@ -70,13 +70,18 @@ public class LinkedList {
 
     public void remove(int num) {
         MyNode cursor = head;
-        MyNode cursor2 = head;
-        int count = 0;
-        while (cursor != null) {
+        MyNode cursor2 = head.getNext();
+        int value;
+        
+        while (cursor2.getData() != num) {
             cursor = cursor.getNext();
-            int value = cursor.getData();
+            cursor2 = cursor2.getNext();
+            value = cursor2.getData();
+            if (value == num) {
+                cursor.setNext(cursor2.getNext());
+                cursor2.setNext(null);
+            }
         }
-        int value = cursor.getData();
     }
 
     public void print() {
@@ -93,9 +98,11 @@ public class LinkedList {
         mylist.add(5);
         mylist.add(3);
         mylist.add(7);
+        mylist.add(4);
         mylist.add(8);
         mylist.insert(9, 3);
         mylist.insert(2, 0);
+        mylist.remove(4);
         mylist.print();
     }
 }
