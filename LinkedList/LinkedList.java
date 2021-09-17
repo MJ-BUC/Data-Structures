@@ -61,23 +61,29 @@ public class LinkedList {
         }
     }
 
-    public void delete(int pos) {           //add removing at the head
-        MyNode cursor = head;
-        MyNode cursor2 = head.getNext();
-        int count = 0;
+    public void delete(int pos) {           //deletes a node at a specific position that is passed as an argument add deleting at the head
+        MyNode cursor = head;               //creates cursor to point to nodes of linked list
+        MyNode cursor2 = head.getNext();    //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
+        int count = 0;                      //creates counter keeps track of how many times traversed
 
-        while (count != pos - 1) {
-            cursor = cursor.getNext();
-            cursor2 = cursor2.getNext();
-            count++;
-            if (count == pos - 1) {
-                cursor.setNext(cursor2.getNext());
-                cursor2.setNext(null);
+        if (pos == 0) {                     //deleting from the head if position passed is equal to 0
+
+        }
+        else{
+
+            while (count != pos - 1) {              //loop until count equals the position entered
+                cursor = cursor.getNext();          //traverse the first counter
+                cursor2 = cursor2.getNext();        //traverse counter2 which is one node ahead of first cursor
+                count++;                            //incrementing the counter keeping track of postions traversed
+                if (count == pos - 1) {
+                    cursor.setNext(cursor2.getNext());
+                    cursor2.setNext(null);
+                }
             }
         }
     }
 
-    public void remove(int num) {                  //add rmoving at the head
+    public void remove(int num) {                  //add removing at the head
         MyNode cursor = head;
         MyNode cursor2 = head.getNext();
         int value;
