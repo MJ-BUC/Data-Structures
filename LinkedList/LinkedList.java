@@ -29,35 +29,35 @@ public class LinkedList {
         MyNode node = new MyNode(num);          //creating new node and setting num to it
         
         MyNode cursor = head;                   //start the cursor at the head
-        if (cursor == null) {
+        if (cursor == null) {                   //if the first value is null (meaning Linked list is empty) create head with current node
             head = node;
         }
         else{
 
-            while (cursor.getNext() != null) {
-                cursor = cursor.getNext();
+            while (cursor.getNext() != null) {  //checks if the next segment of linkeded list is null before traversing
+                cursor = cursor.getNext();      //traverses based on while loop condition
             }
-            cursor.setNext(node);
+            cursor.setNext(node);               //sets the node at the end of the linked list
         }
     }
 
     public void insert(int num, int pos) {        //inerts an item into the linkedlist
-        MyNode node = new MyNode(num);
+        MyNode node = new MyNode(num);            //creates node
 
         MyNode cursor = head;                     //cursor used to traverse to position
-        int count = 0;                            //counter 
-        if (pos == 0) {
-            node.setNext(cursor);
+        int count = 0;                            //create counter 
+        if (pos == 0) {                           //checks if the postion is equal to zero to know if it needs to insert at the head
+            node.setNext(cursor);                 
             head = node;
         }
         else{
         
             while (count < pos -1 && cursor != null) {         //loop until the previous node in the linked list
-                cursor = cursor.getNext();
-                count++;
+                cursor = cursor.getNext();                     //traverses through the linked list
+                count++;                                       //increments counter to keeo track of how many times traversed until position
             }
-            node.setNext(cursor.getNext());
-            cursor.setNext(node);
+            node.setNext(cursor.getNext());                    //sets node to next position
+            cursor.setNext(node);                              //saves node to position entered
         }
     }
 
@@ -106,7 +106,10 @@ public class LinkedList {
         LinkedList mylist = new LinkedList();
         mylist.add(5);
         mylist.add(3);
+        mylist.add(0);
         mylist.add(7);
+        mylist.add(1);
+        mylist.add(6);
         mylist.add(4);
         mylist.add(8);
 
