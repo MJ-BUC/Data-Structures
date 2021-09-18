@@ -1,5 +1,6 @@
+//Mark Bucaro / This is a program that creates and uses the linked list data structure.
 
-package LinkedList;
+package CSCE210.LinkedList;
 
 public class LinkedList {
 
@@ -67,7 +68,9 @@ public class LinkedList {
         int count = 0;                      //creates counter keeps track of how many times traversed
 
         if (pos == 0) {                     //deleting from the head if position passed is equal to 0
-
+            cursor.setNext(cursor.getNext());
+            cursor.setNext(null);
+            head = cursor2;
         }
         else{
 
@@ -87,14 +90,23 @@ public class LinkedList {
         MyNode cursor = head;
         MyNode cursor2 = head.getNext();
         int value;
-
-        while (cursor2.getData() != num) {
-            cursor = cursor.getNext();
-            cursor2 = cursor2.getNext();
-            value = cursor2.getData();
-            if (value == num) {
-                cursor.setNext(cursor2.getNext());
-                cursor2.setNext(null);
+        int count = 0;
+        
+        if (count == 0 && cursor.getData() == num) {
+            cursor.setNext(cursor.getNext());
+            cursor.setNext(null);
+            head = cursor2;
+        }
+        else{
+            
+            while (cursor2.getData() != num) {
+                cursor = cursor.getNext();
+                cursor2 = cursor2.getNext();
+                value = cursor2.getData();
+                if (value == num) {
+                    cursor.setNext(cursor2.getNext());
+                    cursor2.setNext(null);
+                }
             }
         }
     }
@@ -110,7 +122,7 @@ public class LinkedList {
     }
     public static void main(String[] args) {
         LinkedList mylist = new LinkedList();
-        mylist.add(5);
+        mylist.add(5);                          //adding items to the linked list
         mylist.add(3);
         mylist.add(0);
         mylist.add(7);
@@ -119,13 +131,15 @@ public class LinkedList {
         mylist.add(4);
         mylist.add(8);
 
-        mylist.insert(9, 3);
-        mylist.insert(2, 0);
+        mylist.insert(9, 3);                    //inserts 9 at the third position
+        mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
 
         mylist.remove(8);
         mylist.remove(4);
+        mylist.remove(2);
 
         mylist.delete(2);
+        mylist.delete(0);
 
         mylist.print();
     }
