@@ -110,9 +110,9 @@ public class LinkedList {
         }
     }
 
-    public void print() {
+    public void print() {                   //prints out the linked list
         MyNode cursor = head;
-        System.out.print("Linked List Items; ");
+        System.out.print("Linked List: ");
         while (cursor != null) {                        //traverse through the entire linked list
             System.out.print(cursor.getData());
             System.out.print(", ");
@@ -142,5 +142,11 @@ public class LinkedList {
         mylist.delete(0);                       //deletes position 0 of the linked list, which is the head and deletes 5
 
         mylist.print();
+
+        System.out.println();
+        System.out.print("Is empty: ");
+        System.out.println(mylist.isEmpty());       //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
+        System.out.print("Size: ");
+        System.out.print(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
     }
 }
