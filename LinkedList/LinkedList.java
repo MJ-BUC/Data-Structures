@@ -1,6 +1,6 @@
 //Mark Bucaro / This is a program that creates and uses the linked list data structure.
 
-package CSCE210.LinkedList;
+package LinkedList;
 
 public class LinkedList {
 

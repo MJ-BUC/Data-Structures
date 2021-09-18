@@ -1,4 +1,4 @@
-package CSCE210.LinkedList;
+package LinkedList;
 
 public class MyNode {
 
