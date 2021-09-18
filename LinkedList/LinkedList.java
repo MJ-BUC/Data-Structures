@@ -67,7 +67,7 @@ public class LinkedList {
         MyNode cursor2 = head.getNext();    //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
         int count = 0;                      //creates counter keeps track of how many times traversed
 
-        if (pos == 0) {                     //deleting from the head if position passed is equal to 0
+        if (pos == 0) {                             //deleting from the head if position passed is equal to 0
             cursor.setNext(cursor.getNext());
             cursor.setNext(null);
             head = cursor2;
