@@ -1,8 +1,8 @@
-//Mark Bucaro / This is a program that creates and uses the linked list data structure.
+//Mark Bucaro / This is a program that creates and uses the doubly linked list data structure.
 
-package CSCE210.LinkedList;
+package CSCE210.PEZ_Dispenser;
 
-public class LinkedList {
+public class DoublyLinkedList {
 
     private MyNode head;
 
