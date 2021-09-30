@@ -120,7 +120,7 @@ public class DoublyLinkedList {
         }
     }
     public static void main(String[] args) {
-        LinkedList mylist = new LinkedList();
+        DoublyLinkedList mylist = new DoublyLinkedList();
         mylist.add(5);                          //adding items to the linked list
         mylist.add(3);                          //-
         mylist.add(0);                          //-
