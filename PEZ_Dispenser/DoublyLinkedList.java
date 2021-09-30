@@ -5,7 +5,9 @@ package CSCE210.PEZ_Dispenser;
 public class DoublyLinkedList {
 
     private MyNode head;
+    private MyNode tail;
 
+    //size does not need to be changed for doubly linked list
     public int size() {
         MyNode cursor = head;               //set cursor to head so we can traverse
         int count = 0;                      //initialize counter to 0
@@ -17,6 +19,7 @@ public class DoublyLinkedList {
             return count;                   //return the count (i.e. size of list)
     }
 
+    //isEmpty does not need to be changed for doubly linked list
     public boolean isEmpty() {
         if (size() == 0) {                  //check if size of inked list is equal to 0
             return true;                    //true if 0
@@ -110,6 +113,7 @@ public class DoublyLinkedList {
         }
     }
 
+    //print does not need to be changed when making a doubly linked list
     public void print() {                   //prints out the linked list
         MyNode cursor = head;
         System.out.print("Linked List: ");
