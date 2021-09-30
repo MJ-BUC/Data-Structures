@@ -34,6 +34,8 @@ public class DoublyLinkedList {
         MyNode node = new MyNode(num);          //creating new node and setting num to it
         
         MyNode cursor = head;                   //start the cursor at the head
+        MyNode cursor2 = tail;                  //start the second cursor at the tail
+
         if (cursor == null) {                   //if the first value is null (meaning Linked list is empty) create head with current node
             head = node;                        //sets the node put into the linked list as the head
         }
