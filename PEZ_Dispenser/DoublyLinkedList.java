@@ -29,6 +29,7 @@ public class DoublyLinkedList {
         }
     }
 
+    //needs to be changed for doubly linked list
     public void add(int num) {                  //passing num, for any integer, to the method
         MyNode node = new MyNode(num);          //creating new node and setting num to it
         
@@ -45,6 +46,7 @@ public class DoublyLinkedList {
         }
     }
 
+    //needs to be changed for doubly linked list
     public void insert(int num, int pos) {        //inerts an item into the linkedlist
         MyNode node = new MyNode(num);            //creates node
 
@@ -65,6 +67,7 @@ public class DoublyLinkedList {
         }
     }
 
+    //needs to be changed for doubly linked list
     public void delete(int pos) {           //deletes a node at a specific position that is passed as an argument add deleting at the head
         MyNode cursor = head;               //creates cursor to point to nodes of linked list
         MyNode cursor2 = head.getNext();    //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
@@ -89,6 +92,7 @@ public class DoublyLinkedList {
         }
     }
 
+    //needs to be changed for doubly linked list
     public void remove(int num) {                  //add removing at the head
         MyNode cursor = head;                      //creates cursor to point to nodes of linked list
         MyNode cursor2 = head.getNext();           //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
