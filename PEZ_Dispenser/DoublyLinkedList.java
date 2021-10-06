@@ -87,10 +87,6 @@ public class DoublyLinkedList {
             head = cursor2;
             cursor2.setPrev(null);
             cursor.setNext(null);
-
-            // cursor.setNext(cursor.getNext());       //sets the next node after the pointer "cursor" to the current spot of pointer "cursor"
-            // cursor.setNext(null);                   //sets the node to delete to null
-            // head = cursor2;                         //cursor2 is set as the head to replace previous item at position zero
         }
 
         else if (pos == size() - 1){
@@ -128,10 +124,7 @@ public class DoublyLinkedList {
         if (cursor.getData() == num) {             //when the first cursor is on the desired num this section runs and will only cath the head of the linked list
             head = cursor2;                        //sets the next node after the pointer "cursor" to the current spot of pointer "cursor"
             cursor2.setPrev(null);
-            cursor.setNext(null);
-            
-            // cursor.setNext(null);                  //sets the node to delete to null
-            // cursor.setNext(cursor.getNext());                       //cursor2 is set as the head to replace previous item at position zero
+            cursor.setNext(null);            
         }
         else{
             
