@@ -7,6 +7,13 @@ public class DoublyLinkedList {
     private MyNode head;
     private MyNode tail;
 
+    public DoublyLinkedList(int data) {
+        if (head == null) {
+            head = new MyNode(data);
+            tail = head;
+        }
+    }
+
     //size does not need to be changed for doubly linked list
     public int size() {
         MyNode cursor = head;               //set cursor to head so we can traverse
@@ -33,17 +40,17 @@ public class DoublyLinkedList {
     public void add(int num) {                  //passing num, for any integer, to the method
         MyNode node = new MyNode(num);          //creating new node and setting num to it
         
-        MyNode cursor = head;                   //start the cursor at the head
+        MyNode cursor = tail;                   //start the cursor at the head
 
-        if (cursor == null) {                   //if the first value is null (meaning Linked list is empty) create head with current node
-            head = node;                        //sets the node put into the linked list as the head
+        if (size() == 0) {                   //if the first value is null (meaning Linked list is empty) create head with current node
+            head = node;
+            tail = node;                        //sets the node put into the linked list as the head
         }
         else{
-            
-            while (cursor.getNext() != null) {  //checks if the next segment of linkeded list is null before traversing
-                cursor = cursor.getNext();      //traverses based on while loop condition
-            }
             cursor.setNext(node);               //sets the node at the end of the linked list
+            cursor.setPrev(node);
+
+            tail = node;
         }
     }
 
@@ -121,15 +128,45 @@ public class DoublyLinkedList {
     //print does not need to be changed when making a doubly linked list
     public void print() {                   //prints out the linked list
         MyNode cursor = head;
-        System.out.print("Linked List: ");
+        System.out.print("Doubly Linked List: ");
         while (cursor != null) {                        //traverse through the entire linked list
             System.out.print(cursor.getData());
             System.out.print(", ");
             cursor = cursor.getNext();
         }
     }
+
+    public void ReversePrint() {
+        MyNode cursor = tail;
+        System.out.print("Doubly Linked List Reversed: ");
+        while (cursor != null) {
+            System.out.print(cursor.getData());
+            System.out.print(", ");
+            cursor = cursor.getPrev();
+        }
+    }
+
+    public int sum(int total) {
+        MyNode cursor = head;
+        total = 0;
+
+        if (isEmpty() == true) {
+            return total;
+        }
+        else {
+            
+        }
+
+        // while (cursor.getNext() != null) {
+        //     int listData = cursor.getData();
+        //     cursor.getNext();
+
+        //     return sum(total);
+        // }
+        return total;
+    }
     public static void main(String[] args) {
-        DoublyLinkedList mylist = new DoublyLinkedList();
+        DoublyLinkedList mylist = new DoublyLinkedList(1);
         mylist.add(5);                          //adding items to the linked list
         mylist.add(3);                          //-
         mylist.add(0);                          //-
@@ -151,6 +188,7 @@ public class DoublyLinkedList {
         mylist.delete(0);                       //deletes position 0 of the linked list, which is the head and deletes 5
 
         mylist.print();
+        mylist.ReversePrint();
 
         System.out.println();
         System.out.print("Is empty: ");
