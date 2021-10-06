@@ -14,7 +14,6 @@ public class DoublyLinkedList {
         }
     }
 
-    //size does not need to be changed for doubly linked list
     public int size() {
         MyNode cursor = head;               //set cursor to head so we can traverse
         int count = 0;                      //initialize counter to 0
@@ -26,7 +25,6 @@ public class DoublyLinkedList {
             return count;                   //return the count (i.e. size of list)
     }
 
-    //isEmpty does not need to be changed for doubly linked list
     public boolean isEmpty() {
         if (size() == 0) {                  //check if size of inked list is equal to 0
             return true;                    //true if 0
@@ -36,7 +34,6 @@ public class DoublyLinkedList {
         }
     }
 
-    //needs to be changed for doubly linked list
     public void add(int num) {                  //passing num, for any integer, to the method
         MyNode node = new MyNode(num);          //creating new node and setting num to it
         
@@ -75,7 +72,6 @@ public class DoublyLinkedList {
         }
     }
 
-    //needs to be changed for doubly linked list
     public void delete(int pos) {           //deletes a node at a specific position that is passed as an argument add deleting at the head
         MyNode cursor = head;               //creates cursor to point to nodes of linked list
         MyNode cursor2 = head.getNext();    //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
@@ -140,7 +136,6 @@ public class DoublyLinkedList {
         }
     }
 
-    //print does not need to be changed when making a doubly linked list
     public void print() {                   //prints out the linked list
         MyNode cursor = head;
         System.out.print("Doubly Linked List: ");
