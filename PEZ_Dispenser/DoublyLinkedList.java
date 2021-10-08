@@ -69,9 +69,6 @@ public class DoublyLinkedList {
             cursor3.setNext(node);
             node.setPrev(cursor3);
             tail = node;
-            // while (count < pos - 1 && cursor != null) {
-                
-            // }
         }
 
         else{
@@ -121,7 +118,6 @@ public class DoublyLinkedList {
             while (count != pos) {                      //loop until count equals the position entered
                 cursor = cursor.getNext();                  //traverse the first counter
                 cursor2 = cursor2.getNext();                //traverse counter2 which is one node ahead of first cursor
-                System.out.println("traverse");
                 count++;                                    //incrementing the counter keeping track of postions traversed
                 if (count == pos) {                     //this section runs when cursor2 is on the position that is requested to delete and cursor is on the previous node
                     cursor = cursor.getPrev();
@@ -160,7 +156,6 @@ public class DoublyLinkedList {
                 cursor2 = cursor2.getNext();                //traverse counter2 which is one node ahead of first cursor
                                                             //cursor2 gets the data from each node to then store it in the varible value
                 count++;
-                // System.out.println(value +", " +count);
 
                 if ((count == (size() - 2)) && (value == num)) {
                     cursor.setNext(null);
