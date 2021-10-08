@@ -56,19 +56,38 @@ public class DoublyLinkedList {
         MyNode node = new MyNode(num);            //creates node
 
         MyNode cursor = head;                     //cursor used to traverse to position
+        MyNode cursor2 = head.getNext();
+        MyNode cursor3 = tail;
+
         int count = 0;                            //create counter to keep track of positions traversed
         if (pos == 0) {                           //checks if the postion is equal to zero to know if it needs to insert at the head
             node.setNext(cursor);                 //attaches the node to the node that the cursor is pointing to
+            cursor.setPrev(node);
             head = node;                          //sets the node put into the linked list as the head
         }
+        else if (pos == size()) {
+            cursor3.setNext(node);
+            node.setPrev(cursor3);
+            tail = node;
+            // while (count < pos - 1 && cursor != null) {
+                
+            // }
+        }
+
         else{
         
             while (count < pos -1 && cursor != null) {         //loop until the previous node in the linked list
-                cursor = cursor.getNext();                     //traverses through the linked list
+                cursor = cursor.getNext();
+                cursor2 = cursor.getNext();                     //traverses through the linked list
                 count++;                                       //increments counter to keeo track of how many times traversed until position
+                
+                if (count == pos - 1) {
+                    node.setNext(cursor.getNext());                    //sets node to next position
+                    cursor.setNext(node);                              //saves node to position entered
+                    node.setPrev(cursor2.getPrev());
+                    cursor2.setPrev(node);
+                }
             }
-            node.setNext(cursor.getNext());                    //sets node to next position
-            cursor.setNext(node);                              //saves node to position entered
         }
     }
 
@@ -86,7 +105,7 @@ public class DoublyLinkedList {
         }
 
         else if (pos == size() - 1){                //deleting from the tail
-            while (count != pos -1) {
+            while (count != pos - 1) {
                 cursor = cursor.getNext();
                 count++; 
                 if (count == pos - 1) {
@@ -99,11 +118,17 @@ public class DoublyLinkedList {
         
         else{
 
-            while (count != pos - 1) {                      //loop until count equals the position entered
+            while (count != pos) {                      //loop until count equals the position entered
                 cursor = cursor.getNext();                  //traverse the first counter
                 cursor2 = cursor2.getNext();                //traverse counter2 which is one node ahead of first cursor
+                System.out.println("traverse");
                 count++;                                    //incrementing the counter keeping track of postions traversed
-                if (count == pos - 1) {                     //this section runs when cursor2 is on the position that is requested to delete and cursor is on the previous node
+                if (count == pos) {                     //this section runs when cursor2 is on the position that is requested to delete and cursor is on the previous node
+                    cursor = cursor.getPrev();
+                    cursor.setNext(cursor2);                //sets the node after desitred position to connect to first cursor
+                    cursor2.setPrev(cursor);
+                }
+                else if (count == pos) {
                     cursor = cursor.getPrev();
                     cursor.setNext(cursor2);                //sets the node after desitred position to connect to first cursor
                     cursor2.setPrev(cursor);
@@ -174,24 +199,32 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    // public int sum(int total) {
+    // public int sum(DoublyLinkedList mylist) {
     //     MyNode cursor = head;
-    //     total = 0;
+    //     int total = 0;
+    //     int counter = 0;
+    //     int value;
 
     //     if (isEmpty() == true) {
     //         return total;
     //     }
-    //     else {
-            
+    //     else{
+    //         while (counter != size()) {
+    //         value = cursor.getData();
+    //         cursor = cursor.getNext();
+    //         counter++;
+    //         return total += sum(mylist);
+    //         }
     //     }
+    //     return value;
 
-    //     // while (cursor.getNext() != null) {
-    //     //     int listData = cursor.getData();
-    //     //     cursor.getNext();
 
-    //     //     return sum(total);
-    //     // }
-    //     return total;
+        // while (cursor.getNext() != null) {
+        //     int listData = cursor.getData();
+        //     cursor.getNext();
+
+        //     return sum(total);
+        // }
     // }
     public static void main(String[] args) {
         DoublyLinkedList mylist = new DoublyLinkedList(1);
@@ -205,17 +238,20 @@ public class DoublyLinkedList {
         mylist.add(4);                          //-
         mylist.add(8);                          //adding items to the linked list
 
-        //mylist.insert(9, 3);                    //inserts 9 at the third position
-        //mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
+        // mylist.insert(9, 10);                    //inserts 9 at the third position
+        // mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
+        // mylist.insert(5, 4);
 
         // mylist.remove(1);
         // mylist.remove(8);                       //removes the fist instance of 8 which is the last position
-        mylist.remove(7);                       //removes the first instance of 4 and removes the 4 that comes before the second
+        // mylist.remove(7);                       //removes the first instance of 4 and removes the 4 that comes before the second
         // mylist.remove(2);                       //removes the first instance of 2 which is also the head
-
+        
+        // mylist.delete(9);
         // mylist.delete(2);                       //deletes positio 2 of the linked list, 0 is deleted
-        // mylist.delete(0);                       //deletes position 0 of the linked list, which is the head and deletes 5
-        mylist.delete(7);
+        // mylist.delete(5);
+        // mylist.delete(0);
+        // mylist.delete(1);
         // mylist.delete(7);
 
         mylist.print();
@@ -225,5 +261,7 @@ public class DoublyLinkedList {
         System.out.println(mylist.isEmpty());       //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
         System.out.print("Size: ");
         System.out.println(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
+        System.out.print("Sum Of List: ");
+        // System.out.println(mylist.sum(mylist));
     }
 }
