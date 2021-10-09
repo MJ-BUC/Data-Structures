@@ -174,7 +174,6 @@ public class DoublyLinkedList {
 
     public void print() {                               //prints out the linked list
         MyNode cursor = head;
-        System.out.print("Doubly Linked List: ");
         while (cursor != null) {                        //traverse through the entire linked list
             System.out.print(cursor.getData());
             System.out.print(", ");
@@ -185,7 +184,6 @@ public class DoublyLinkedList {
 
     public void ReversePrint() {
         MyNode cursor = tail;
-        System.out.print("Doubly Linked List Reversed: ");
         while (cursor != null) {
             System.out.print(cursor.getData());
             System.out.print(", ");
@@ -229,7 +227,9 @@ public class DoublyLinkedList {
     //     // mylist.delete(1);
     //     // mylist.delete(7);
 
+    //     System.out.print("Doubly Linked List: ");
     //     mylist.print();
+    //     System.out.print("Doubly Linked List Reversed: ");
     //     mylist.ReversePrint();
 
     //     System.out.print("Is empty: ");
