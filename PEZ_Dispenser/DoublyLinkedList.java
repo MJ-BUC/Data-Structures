@@ -194,33 +194,23 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    // public int sum(DoublyLinkedList mylist) {
-    //     MyNode cursor = head;
-    //     int total = 0;
-    //     int counter = 0;
-    //     int value;
+    public int sum(int value) {
+        MyNode cursor = head;
+        int total = 0;
+        int counter = 0;
 
-    //     if (isEmpty() == true) {
-    //         return total;
-    //     }
-    //     else{
-    //         while (counter != size()) {
-    //         value = cursor.getData();
-    //         cursor = cursor.getNext();
-    //         counter++;
-    //         return total += sum(mylist);
-    //         }
-    //     }
-    //     return value;
-
-
-        // while (cursor.getNext() != null) {
-        //     int listData = cursor.getData();
-        //     cursor.getNext();
-
-        //     return sum(total);
-        // }
-    // }
+        if (isEmpty() == true) {
+            return total;
+        }
+        else if (counter != size()) {
+            value = cursor.getData();
+            cursor = cursor.getNext();
+            System.out.println(counter);
+            counter++;
+            return total += sum(value);
+        }
+        return total;
+    }
     public static void main(String[] args) {
         DoublyLinkedList mylist = new DoublyLinkedList(1);
         mylist.add(5);                          //adding items to the linked list
@@ -257,6 +247,6 @@ public class DoublyLinkedList {
         System.out.print("Size: ");
         System.out.println(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
         System.out.print("Sum Of List: ");
-        // System.out.println(mylist.sum(mylist));
+        System.out.println(mylist.sum(1));
     }
 }
