@@ -194,59 +194,49 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public int sum(int value) {
-        MyNode cursor = head;
-        int total = 0;
-        int counter = 0;
-
-        if (isEmpty() == true) {
-            return total;
+    public int sum(MyNode node) {
+        if (node.getNext() == null) {
+            return node.getData();
         }
-        else if (counter != size()) {
-            value = cursor.getData();
-            cursor = cursor.getNext();
-            System.out.println(counter);
-            counter++;
-            return total += sum(value);
-        }
-        return total;
+        return node.getData() + sum(node.getNext());
     }
-    public static void main(String[] args) {
-        DoublyLinkedList mylist = new DoublyLinkedList(1);
-        mylist.add(5);                          //adding items to the linked list
-        mylist.add(3);                          //-
-        mylist.add(0);                          //-
-        mylist.add(4);                          //-
-        mylist.add(7);                          //-
-        mylist.add(1);                          //-
-        mylist.add(6);                          //-
-        mylist.add(4);                          //-
-        mylist.add(8);                          //adding items to the linked list
 
-        // mylist.insert(9, 10);                    //inserts 9 at the third position
-        // mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
-        // mylist.insert(5, 4);
+    // public static void main(String[] args) {
+    //     DoublyLinkedList mylist = new DoublyLinkedList(1);
+    //     mylist.add(5);                          //adding items to the linked list
+    //     mylist.add(3);                          //-
+    //     mylist.add(0);                          //-
+    //     mylist.add(4);                          //-
+    //     mylist.add(7);                          //-
+    //     mylist.add(1);                          //-
+    //     mylist.add(6);                          //-
+    //     mylist.add(4);                          //-
+    //     mylist.add(8);                          //adding items to the linked list
 
-        // mylist.remove(1);
-        // mylist.remove(8);                       //removes the fist instance of 8 which is the last position
-        // mylist.remove(7);                       //removes the first instance of 4 and removes the 4 that comes before the second
-        // mylist.remove(2);                       //removes the first instance of 2 which is also the head
+    //     // mylist.insert(9, 10);                    //inserts 9 at the third position
+    //     // mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
+    //     // mylist.insert(5, 4);
+
+    //     // mylist.remove(1);
+    //     // mylist.remove(8);                       //removes the fist instance of 8 which is the last position
+    //     // mylist.remove(7);                       //removes the first instance of 4 and removes the 4 that comes before the second
+    //     // mylist.remove(2);                       //removes the first instance of 2 which is also the head
         
-        // mylist.delete(9);
-        // mylist.delete(2);                       //deletes positio 2 of the linked list, 0 is deleted
-        // mylist.delete(5);
-        // mylist.delete(0);
-        // mylist.delete(1);
-        // mylist.delete(7);
+    //     // mylist.delete(9);
+    //     // mylist.delete(2);                       //deletes positio 2 of the linked list, 0 is deleted
+    //     // mylist.delete(5);
+    //     // mylist.delete(0);
+    //     // mylist.delete(1);
+    //     // mylist.delete(7);
 
-        mylist.print();
-        mylist.ReversePrint();
+    //     mylist.print();
+    //     mylist.ReversePrint();
 
-        System.out.print("Is empty: ");
-        System.out.println(mylist.isEmpty());       //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
-        System.out.print("Size: ");
-        System.out.println(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
-        System.out.print("Sum Of List: ");
-        System.out.println(mylist.sum(1));
-    }
+    //     System.out.print("Is empty: ");
+    //     System.out.println(mylist.isEmpty());       //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
+    //     System.out.print("Size: ");
+    //     System.out.println(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
+    //     System.out.print("Sum Of List: ");
+    //     // System.out.println(mylist.sum());
+    // }
 }
