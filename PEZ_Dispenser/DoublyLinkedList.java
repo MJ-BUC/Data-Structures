@@ -61,7 +61,7 @@ public class DoublyLinkedList {
         int count = 0;                            //create counter to keep track of positions traversed
         
         if (pos > size() + 1 || pos < 0) {
-            System.out.println("The entered position is invalid, not within list length!")
+            System.out.println("The entered position is invalid, not within list length!");
         }
 
         else {
