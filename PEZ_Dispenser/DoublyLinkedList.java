@@ -151,17 +151,17 @@ public class DoublyLinkedList {
             }
         }
     }
-
+    // null pointer exception waiting to happen when only one node
     public void remove(int num) {                         //removes the first instance of a desired num associated with a node
         MyNode cursor = head;                             //creates cursor to pointing to head
         MyNode cursor2 = head.getNext();                  //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
         MyNode cursor3 = tail;                            //creates cursor pinting to the tail node
         int value = head.getData();                       //saves cursor2 getData() to use in the if statement used for checking if num entered is equal to the getData()
-        int value2 = cursor.getData();
+        int value2 = cursor.getData();                    //saves cursor2's getData() used for removing at pos 1
 
-        int count = 0;
+        int count = 0;                                    //establishes a counter
         
-        if (isEmpty()) {
+        if (isEmpty()) {                                  //error handler for removing in an empty list
             System.out.println("The list is empty. Cannot Remove!");
         }
         
@@ -169,8 +169,8 @@ public class DoublyLinkedList {
 
             if (cursor.getData() == num) {                                  //when the first cursor is on the desired num this section runs and will only cath the head of the linked list
                 head = cursor2;                                             //sets the next node after the pointer "cursor" to the current spot of pointer "cursor"
-                cursor2.setPrev(null);
-                cursor.setNext(null); // null pointer exception waiting to happen when only one node           
+                cursor2.setPrev(null);                                      //sets the previous pointer from cursor2 to null breaking connection
+                cursor.setNext(null);                                       //sets the next pointer from cursor to null breaking connection
             }
 
             else{
@@ -179,29 +179,29 @@ public class DoublyLinkedList {
                     value2 = cursor2.getData();                                      //runs when cursor2 is on the desired node to remove
                     cursor = cursor.getNext();                                       //traverse the first counter
                     cursor2 = cursor2.getNext();                                     //traverse counter2 which is one node ahead of first cursor
-                    value = cursor2.getData();                                            
-                                                                                    //cursor2 gets the data from each node to then store it in the varible value
-                    count++;
+                    value = cursor2.getData();                                       //records the getData() from each node that cursor2 traverses over
+                                                                                     //cursor2 gets the data from each node to then store it in the varible value
+                    count++;                                                         //incrementing counter
 
-                    if ((count == (size() - 2)) && (value == num)) {                //remove from the tail
-                        cursor.setNext(null);
-                        cursor3.setPrev(null);
-                        tail = cursor;
+                    if ((count == (size() - 2)) && (value == num)) {                 //remove from the tail
+                        cursor.setNext(null);                                        //sets the pointer next of cursor to null to break the connection to the node
+                        cursor3.setPrev(null);                                       //sets the pointer prev of cursor3 to null to break the connectionnto the node
+                        tail = cursor;                                               //node of the cursor becomes the new tail
                     }
                     
-                    else if ((count != (size() - 2)) && ((value == num))) {
-                        cursor2 = cursor2.getNext();
-                        cursor.setNext(cursor2);                                    //sets the node after desitred position to connect to first cursor
-                        cursor2.setPrev(cursor);
+                    else if ((count != (size() - 2)) && ((value == num))) {          //removes nodes in the list excluding the head, tail, and index 1
+                        cursor2 = cursor2.getNext();                                 //traverses cursor2
+                        cursor.setNext(cursor2);                                     //sets the node after desitred position to connect to first cursor
+                        cursor2.setPrev(cursor);                                     //sets the prev pointer from cursor2 to cursor this breaks connection to the node
                     }
 
-                    else if ((count != (size() - 2)) && ((value2 == num))) {
-                        cursor = cursor.getPrev();
-                        cursor.setNext(cursor2);                                    //sets the node after desitred position to connect to first cursor
-                        cursor2.setPrev(cursor);
+                    else if ((count != (size() - 2)) && ((value2 == num))) {         //removes the node at index 1
+                        cursor = cursor.getPrev();                                   //traverse the cursor back 1
+                        cursor.setNext(cursor2);                                     //sets the node after desitred position to connect to first cursor
+                        cursor2.setPrev(cursor);                                     //sets the prev pointer from cursor2 to cursor this breaks connection to the node
                     }
 
-                    else if (cursor2.getNext() == null) {
+                    else if (cursor2.getNext() == null) {                            //error handling for a num that is not in the list
                         System.out.println("The number " + num + " is not in the list!");
                     }
                 }
@@ -219,9 +219,9 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public void ReversePrint() {
-        MyNode cursor = tail;
-        while (cursor != null) {
+    public void ReversePrint() {                                //prints the list in reverse
+        MyNode cursor = tail;                                   
+        while (cursor != null) {                                //traverse through the linked list using getPrev()
             System.out.print(cursor.getData());
             System.out.print(", ");
             cursor = cursor.getPrev();
@@ -229,18 +229,18 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public int sum(MyNode node) {
-        if (node.getNext() == null) {
+    public int sum(MyNode node) {                               //recursivly sum the nodes, a node is passed as an argument
+        if (node.getNext() == null) {                           //returns when the next position of the node is a null value
             return node.getData();
         }
-        return node.getData() + sum(node.getNext());
+        return node.getData() + sum(node.getNext());            //totals the getData from the node
     }
 
-    public void sumPrint() {
+    public void sumPrint() {                                    //prints the sum returned from the sum method
         System.out.println("Sum of list: "+ sum(head));
     }
 
-    public int getHead() {
+    public int getHead() {                                      //gets the data from the head node and returns it
         MyNode cursor = head;
         int value = cursor.getData();
         return value;
@@ -262,16 +262,16 @@ public class DoublyLinkedList {
         mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
         mylist.insert(5, 1);                    //inserts at poition 4, a place near the middle of the list
 
-        mylist.remove(2);                             //removes the first instance of 2, removing at the head of the list
+        mylist.remove(2);                       //removes the first instance of 2, removing at the head of the list
         mylist.remove(9);                       //removes the first instance of 9 which is the last position
-        mylist.remove(5);                       //removes the first instance of 4 and removes the 4 that comes before the second
-        mylist.remove(10);                       //removes the first instance of 2 which is also the head
+        mylist.remove(5);                       //removes the first instance of 5
+        mylist.remove(10);                      //removes the first instance of 10 which is out of range
         
-        mylist.delete(9);
-        mylist.delete(7);                       //deletes positio 2 of the linked list, 0 is deleted
-        mylist.delete(7);
-        mylist.delete(0);
-        mylist.delete(1);
+        mylist.delete(9);                       //deletes position 9 of the list
+        mylist.delete(7);                       //deletes position 7 of the list
+        mylist.delete(7);                       //deletes position 7 of the list which is the tail
+        mylist.delete(0);                       //deletes position 9 of the list which is the head
+        mylist.delete(1);                       //deletes position 9 of the list
 
         System.out.print("Doubly Linked List: ");
         mylist.print();
