@@ -109,8 +109,8 @@ public class DoublyLinkedList {
 
         int count = 0;                      //creates counter keeps track of how many times traversed
         
-        if (isEmpty()) {                    //error handler for deleting if a list is empty
-            System.out.println("The list is empty. Cannot Delete!");
+        if (isEmpty() || size() <= 1) {                    //error handler for deleting if a list is empty
+            System.out.println("The list or stack is empty. Cannot Delete!");
         }
         
         else if (pos > size() || pos < 0) {               //error handler for entered position being less than 0 or greater than the overall size of the list
@@ -241,6 +241,10 @@ public class DoublyLinkedList {
     }
 
     public int getHead() {                                      //gets the data from the head node and returns it
+        if (size() <= 1) {
+            System.out.println("cannot pop off stack!");
+        }
+        
         MyNode cursor = head;
         int value = cursor.getData();
         return value;
