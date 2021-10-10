@@ -151,7 +151,7 @@ public class DoublyLinkedList {
             }
         }
     }
-    // null pointer exception waiting to happen when only one node
+
     public void remove(int num) {                         //removes the first instance of a desired num associated with a node
         MyNode cursor = head;                             //creates cursor to pointing to head
         MyNode cursor2 = head.getNext();                  //creates second cursor with similar functionality to the previous cursor, automatically traverse one ahead of first cursor
