@@ -2,6 +2,7 @@ package CSCE210.PEZ_Dispenser;
 
 public class Stack {
     
+    private MyNode head;
     private DoublyLinkedList mylist = null;
     
     public Stack(int data) {
@@ -13,15 +14,18 @@ public class Stack {
     }
 
     public int pop() {
-        return 0;
-
+        int num;
+        num = mylist.getHead();
+        
+        mylist.delete(0);
+        return num;
     }
 
     public boolean isEmpty() {
         return mylist.isEmpty();
     }
 
-    public int sum(MyNode node) {                       //needs work not functional
+    public int sum(MyNode node) {                           //needs work not functional
         if (node.getNext() == null) {
             return node.getData();
         }
@@ -29,12 +33,10 @@ public class Stack {
     }
 
     public void print() {
-        System.out.print("Stack: ");
         mylist.print();
     }
 
     public void ReversePrint() {
-        System.out.print("Stack Reversed: ");
         mylist.ReversePrint();
     }
 
@@ -46,11 +48,14 @@ public class Stack {
         mystack.push(6);
         mystack.push(8);
         mystack.push(7);
+        mystack.pop();
         
         System.out.print("Stack empty: ");
         System.out.println(mystack.isEmpty());
 
+        System.out.print("Stack: ");
         mystack.print();
+        System.out.print("Stack Reversed: ");
         mystack.ReversePrint();
     }
 

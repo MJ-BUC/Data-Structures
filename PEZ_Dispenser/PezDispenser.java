@@ -19,20 +19,21 @@ public class PezDispenser {
         mystack.push(random());
     }
 
-    public int pop() {                      //not working needs work
-        return 0;
-
+    public int pop() {                      
+        return mystack.pop();
     }
 
     public void print() {
+        System.out.print("PEZ In Dispenser: ");
         mystack.print();
     }
 
     public void ReversePrint() {
+        System.out.print("Pez In Dispenser Reversed: ");
         mystack.ReversePrint();
     }
 
-    public int sum() {                      //not working needs work
+    public int sum() {                                      //not working needs work
         return 0;
 
     }
@@ -46,6 +47,8 @@ public class PezDispenser {
         mypez.push();
         mypez.push();
         mypez.push();
+
+        mypez.pop();
 
         mypez.print();
         mypez.ReversePrint();
