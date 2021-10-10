@@ -77,6 +77,13 @@ public class DoublyLinkedList {
                 tail = node;
             }
 
+            else if (count == pos - 1 || pos == 1) {
+                node.setNext(cursor.getNext());                    //sets node to next position
+                cursor.setNext(node);                              //saves node to position entered
+                node.setPrev(cursor2.getPrev());
+                cursor2.setPrev(node);
+            }
+
             else{
             
                 while (count < pos -1 && cursor != null) {         //loop until the previous node in the linked list
@@ -251,21 +258,20 @@ public class DoublyLinkedList {
         mylist.add(4);                          //-
         mylist.add(8);                          //adding items to the linked list
 
-        // mylist.insert(9, 10);                   //inserts 9 at the tail position
-        // mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
-        // mylist.insert(5, 4);                    //inserts at poition 4, a place near the middle of the list
+        mylist.insert(9, 10);                   //inserts 9 at the tail position
+        mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
+        mylist.insert(5, 1);                    //inserts at poition 4, a place near the middle of the list
 
-        // mylist.remove(7);                             //removes the first instance of 2, removing at the head of the list
-        // mylist.remove(8);                       //removes the first instance of 9 which is the last position
-        // mylist.remove(5);                       //removes the first instance of 4 and removes the 4 that comes before the second
-        // mylist.remove(100);                       //removes the first instance of 2 which is also the head
+        mylist.remove(2);                             //removes the first instance of 2, removing at the head of the list
+        mylist.remove(9);                       //removes the first instance of 9 which is the last position
+        mylist.remove(5);                       //removes the first instance of 4 and removes the 4 that comes before the second
+        mylist.remove(10);                       //removes the first instance of 2 which is also the head
         
-    //     // mylist.delete(9);
-    //     // mylist.delete(2);                       //deletes positio 2 of the linked list, 0 is deleted
-        // mylist.delete(5);
-    //     // mylist.delete(0);
-        // mylist.delete(1);
-    //     // mylist.delete(7);
+        mylist.delete(9);
+        mylist.delete(7);                       //deletes positio 2 of the linked list, 0 is deleted
+        mylist.delete(7);
+        mylist.delete(0);
+        mylist.delete(1);
 
         System.out.print("Doubly Linked List: ");
         mylist.print();

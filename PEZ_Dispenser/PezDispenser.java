@@ -37,20 +37,4 @@ public class PezDispenser {
         return 0;
 
     }
-
-    public static void main(String[] args) {
-        PezDispenser mypez = new PezDispenser(1);
-
-        mypez.push();
-        mypez.push();
-        mypez.push();
-        mypez.push();
-        mypez.push();
-        mypez.push();
-
-        mypez.pop();
-
-        mypez.print();
-        mypez.ReversePrint();
-    }
 }

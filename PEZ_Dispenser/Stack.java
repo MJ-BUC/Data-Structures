@@ -2,7 +2,6 @@ package CSCE210.PEZ_Dispenser;
 
 public class Stack {
     
-    private MyNode head;
     private DoublyLinkedList mylist = null;
     
     public Stack(int data) {
@@ -43,12 +42,12 @@ public class Stack {
     public static void main(String[] args) {
         Stack mystack = new Stack(1);
 
-        mystack.push(5);
-        mystack.push(3);
-        mystack.push(6);
-        mystack.push(8);
-        mystack.push(7);
-        mystack.pop();
+        // mystack.push(5);
+        // mystack.push(3);
+        // mystack.push(6);
+        // mystack.push(8);
+        // mystack.push(7);
+        // mystack.pop();
         
         System.out.print("Stack empty: ");
         System.out.println(mystack.isEmpty());
