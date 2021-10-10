@@ -246,7 +246,7 @@ public class DoublyLinkedList {
         return value;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {                    //test DLL directly
         DoublyLinkedList mylist = new DoublyLinkedList(1);
         mylist.add(5);                          //adding items to the linked list
         mylist.add(3);                          //-
