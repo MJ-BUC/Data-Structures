@@ -24,11 +24,8 @@ public class Stack {
         return mylist.isEmpty();
     }
 
-    public int sum(MyNode node) {                           //needs work not functional
-        if (node.getNext() == null) {
-            return node.getData();
-        }
-        return node.getData() + sum(node.getNext());
+    public void sum() {
+        mylist.sumPrint();
     }
 
     public void print() {

@@ -16,5 +16,6 @@ public class PezDispenserMain {
 
         myPez.print();
         myPez.ReversePrint();
+        myPez.sum();
     }
 }

@@ -33,8 +33,8 @@ public class PezDispenser {
         mystack.ReversePrint();
     }
 
-    public int sum() {                                      //not working needs work
-        return 0;
+    public void sum() {                                      //not working needs work
+        mystack.sum();
 
     }
 }
