@@ -1,6 +1,6 @@
 package CSCE210.PEZ_Dispenser;
 
-public class PezDispenserMain {
+public class PezDispenserDemo {
     
     public static void main(String[] args) {                //Demos the pez dispenser by pushing, popping, printing regularly and in reverse, and summing the items in the dispenser
         PezDispenser myPez = new PezDispenser(1);
