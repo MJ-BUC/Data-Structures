@@ -1,6 +1,6 @@
 //Mark Bucaro / A program that creates and dsplays the vehicles and their specs.
 
-package vehicle;
+package CSCE210.vehicle;
 
 public class Vehicle {
     String Type;
