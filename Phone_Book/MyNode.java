@@ -1,23 +1,33 @@
-package CSCE210.PEZ_Dispenser;
+package CSCE210.Phone_Book;
 
 public class MyNode {
 
 	private int nodeData;	//node's data
+	private String nodeKey;
 	private MyNode next;	//node's next pointer
 	private MyNode prev;	//node's prev pointer
 
-	public MyNode(int data) { 
-		nodeData = data;     //initialize node data
+	public MyNode(String key, int value) { 
+		nodeKey = key;
+		nodeData = value;     //initialize node data
 		next = null;		 //initialize next to null
 		prev = null;		 //initialize prev to null
 	}
 
-	public int getData() {
+	public String getKey() {
+		return nodeKey;
+	}
+
+	public int getValue() {
 		return nodeData;	//return node's data
 	}
 
-	public void setData(int data) {
-		nodeData = data;	//set node's data
+	public void setValue(int value) {
+		nodeData = value;	//set node's data
+	}
+
+	public void setKey(String key) {
+		nodeKey = key;
 	}
 	
 	public MyNode getNext() {
