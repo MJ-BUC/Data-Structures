@@ -62,9 +62,9 @@ public class Hash {
         while (index < size) {
             node = tempHashArray[index].getHead();
             while (node != null) {
-                String k = node.getKey();
-                int v = node.getValue();
-                Insert(k, v);
+                String key = node.getKey();
+                int value = node.getValue();
+                Insert(key, value);
             }
         }
     }
