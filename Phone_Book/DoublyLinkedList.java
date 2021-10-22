@@ -207,10 +207,30 @@ public class DoublyLinkedList {
         }
     }
 
+    public MyNode NodeFind(String key) {
+        MyNode cursor = head;
+        String value = head.getKey();
+
+        if (size() == 0) {
+            return null;
+        }
+        else {
+            while(value != key && cursor.getNext() != null) {
+                value = cursor.getKey();
+                cursor = cursor.getNext();
+                if (value == key) {
+                    return cursor;
+                }
+            }
+            return null;
+        }
+    }
+
     public void print() {                                       //prints out the linked list
         MyNode cursor = head;
         while (cursor != null) {                                //traverse through the entire linked list
             System.out.print(cursor.getKey());
+            System.out.print(' ');
             System.out.print(cursor.getValue());
             System.out.print(", ");
             cursor = cursor.getNext();
@@ -222,12 +242,21 @@ public class DoublyLinkedList {
         MyNode cursor = tail;                                   
         while (cursor != null) {                                //traverse through the linked list using getPrev()
             System.out.print(cursor.getKey());
+            System.out.print(' ');
             System.out.print(cursor.getValue());
             System.out.print(", ");
             cursor = cursor.getPrev();
         }
         System.out.println();
     }
+
+    public MyNode getHead() {
+        if (size() <= 1) {
+            return null;
+        }
+        return head;
+    }
+
 
     // public int sum(MyNode node) {                               //recursivly sum the nodes, a node is passed as an argument
     //     if (node.getNext() == null) {                           //returns when the next position of the node is a null value
@@ -241,7 +270,7 @@ public class DoublyLinkedList {
     // }
 
     public static void main(String[] args) {                    //test DLL directly
-        DoublyLinkedList mylist = new DoublyLinkedList();
+        // DoublyLinkedList mylist = new DoublyLinkedList();
         // mylist.add(5);                          //adding items to the linked list
         // mylist.add(3);                          //-
         // mylist.add(0);                          //-
