@@ -268,44 +268,4 @@ public class DoublyLinkedList {
     // public void sumPrint() {                                    //prints the sum returned from the sum method
     //     System.out.println("Sum of list: "+ sum(head));
     // }
-
-    public static void main(String[] args) {                    //test DLL directly
-        // DoublyLinkedList mylist = new DoublyLinkedList();
-        // mylist.add(5);                          //adding items to the linked list
-        // mylist.add(3);                          //-
-        // mylist.add(0);                          //-
-        // mylist.add(4);                          //-
-        // mylist.add(7);                          //-
-        // mylist.add(1);                          //-
-        // mylist.add(6);                          //-
-        // mylist.add(4);                          //-
-        // mylist.add(8);                          //adding items to the linked list
-
-        // mylist.insert(9, 10);                   //inserts 9 at the tail position
-        // mylist.insert(2, 0);                    //inserts 2 at position zero, which is the head
-        // mylist.insert(5, 1);                    //inserts at poition 4, a place near the middle of the list
-
-        // mylist.remove(2);                       //removes the first instance of 2, removing at the head of the list
-        // mylist.remove(9);                       //removes the first instance of 9 which is the last position
-        // mylist.remove(5);                       //removes the first instance of 5
-        // mylist.remove(10);                      //removes the first instance of 10 which is out of range
-        
-        // mylist.delete(9);                       //deletes position 9 of the list
-        // mylist.delete(7);                       //deletes position 7 of the list
-        // mylist.delete(7);                       //deletes position 7 of the list which is the tail
-        // mylist.delete(0);                       //deletes position 9 of the list which is the head
-        // mylist.delete(1);                       //deletes position 9 of the list
-
-        // System.out.print("Doubly Linked List: ");
-        // mylist.print();
-        // System.out.print("Doubly Linked List Reversed: ");
-        // mylist.ReversePrint();
-
-        // System.out.print("Is empty: ");
-        // System.out.println(mylist.isEmpty());           //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
-        // System.out.print("Size: ");
-        // System.out.println(mylist.size());              //print the size of the linked list: this current linked list has a size of 6
-        // System.out.print("Sum Of List: ");
-        // mylist.sumPrint();
-    }
 }

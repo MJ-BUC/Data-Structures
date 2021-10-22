@@ -4,7 +4,6 @@ public class Hash {
     
     private DoublyLinkedList mylist = null;
     private DoublyLinkedList[] hashArray;
-    private DoublyLinkedList[] hashArray2;
 
     public Hash(int size) {
         hashArray = new DoublyLinkedList[size];
@@ -18,7 +17,7 @@ public class Hash {
         return position;
     }
 
-    public void insert(String key, int value) {
+    public void Insert(String key, int value) {
         int index = HashKey(key);
         MyNode newnode = new MyNode(key, value);
         hashArray[index].add(newnode);
@@ -26,7 +25,7 @@ public class Hash {
             Resize();
         }
     }
-
+ 
     public int NumKeys() {
         int counter = 0;
         for (DoublyLinkedList element: hashArray) {
@@ -55,9 +54,18 @@ public class Hash {
     }
 
     public void Resize() {
+        MyNode node;
         int size = Capacity();
-        DoublyLinkedList[] tempHashArray2 = new DoublyLinkedList[size * 2];
-        
-        
+        int index = 0;
+        DoublyLinkedList[] tempHashArray = new DoublyLinkedList[size * 2];
+
+        while (index < size) {
+            node = tempHashArray[index].getHead();
+            while (node != null) {
+                String k = node.getKey();
+                int v = node.getValue();
+                Insert(k, v);
+            }
+        }
     }
 }
