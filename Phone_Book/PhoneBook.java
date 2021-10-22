@@ -4,8 +4,8 @@ public class PhoneBook {
 
     private Hash myHash;
     
-    public PhoneBook() {
-        
+    public PhoneBook(int size) {
+        myHash = new Hash(size);
     }
 
     public void Insert(String name, int number) {
