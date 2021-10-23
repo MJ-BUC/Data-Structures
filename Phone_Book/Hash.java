@@ -12,14 +12,16 @@ public class Hash {
     public int HashKey(String key) {
         int size = Capacity();
         int position;
-        int character = key.charAt(0);
-        position = character % size;
+        int charAscii = key.charAt(0);
+        int charLength = key.length();
+        position = (charAscii * charLength + size) % size;
         return position;
     }
 
     public void Insert(String key, int value) {
         int index = HashKey(key);
         MyNode newnode = new MyNode(key, value);
+        hashArray[index] = new DoublyLinkedList(null);
         hashArray[index].add(newnode);
         if (LoadFactor() > 0.7) {
             Resize();
@@ -36,7 +38,7 @@ public class Hash {
         return counter;
     }
 
-    public void delete(String key) {
+    public void Delete(String key) {
         mylist.remove(key);
     }
 
@@ -46,8 +48,8 @@ public class Hash {
     }
 
     public double LoadFactor(){
-        int size = Capacity();
-        int usedSpaces = NumKeys();
+        double size = Capacity();
+        double usedSpaces = NumKeys();
         double load = usedSpaces / size;
 
         return load;
@@ -57,15 +59,17 @@ public class Hash {
         MyNode node;
         int size = Capacity();
         int index = 0;
-        DoublyLinkedList[] tempHashArray = new DoublyLinkedList[size * 2];
+        DoublyLinkedList[] tempHashArray = hashArray;
+        hashArray = new DoublyLinkedList[size * 2];
 
         while (index < size) {
             node = tempHashArray[index].getHead();
-            while (node != null) {
+            if (node != null) {
                 String key = node.getKey();
                 int value = node.getValue();
                 Insert(key, value);
             }
+            index++;
         }
     }
 }

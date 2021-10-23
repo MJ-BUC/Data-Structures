@@ -251,10 +251,10 @@ public class DoublyLinkedList {
     }
 
     public MyNode getHead() {
-        if (size() <= 1) {
-            return null;
+        if (size() >= 1) {
+            return head;
         }
-        return head;
+        return null;
     }
 
 

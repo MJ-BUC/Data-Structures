@@ -17,7 +17,7 @@ public class PhoneBook {
     }
 
     public void Delete(String name) {
-
+        myHash.Delete(name);
     }
 
     public void Print() {
