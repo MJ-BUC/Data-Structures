@@ -2,7 +2,6 @@ package CSCE210.Phone_Book;
 
 public class Hash {
     
-    private DoublyLinkedList mylist = null;
     DoublyLinkedList[] hashArray;
 
     public Hash(int size) {                         //constructor for the hash table
@@ -52,7 +51,7 @@ public class Hash {
                 String name = node.getKey();                //retrieves the key of the node
                 
                 if (key == name) {                          //if the key passed is equal to the name in the array, it will be removed
-                    mylist.remove(name);                    
+                    hashArray[index] = null;                     
                 }
             }
             index++;
