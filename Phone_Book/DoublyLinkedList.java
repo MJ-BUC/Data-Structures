@@ -254,9 +254,9 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public MyNode getHead() {
+    public MyNode getHead() {                                   //gets the head node in a linked list
         MyNode cursor = head;
-        if (size() >= 1 && cursor != null) {
+        if (size() >= 1 && cursor != null) {                    //returns the head if size of the list is greater than or equal to 1 and of the cursor is not null
             return head;
         }
         return null;
