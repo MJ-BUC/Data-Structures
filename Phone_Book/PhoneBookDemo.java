@@ -11,9 +11,9 @@ public class PhoneBookDemo {
         myPhoneBook.Insert("Mark", 312);
         myPhoneBook.Insert("George", 630);
 
-        myPhoneBook.Delete("George");
-
         myPhoneBook.Print();
         myPhoneBook.Retrieve("Caden");
+
+        myPhoneBook.Delete("George");
     }
 }
