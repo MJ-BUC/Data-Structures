@@ -15,7 +15,7 @@ public class Hash {
         int position = 0;                           //keeps track of the position
         int strLength = key.length();               //finds the length of the string
         for (int i = 0; i < strLength; i ++) {          //this will look over each character of the string and convert each character to ascii while multiplying the constant whith the current total poition. this will keep a running total
-            position += constantHashInt * position + key.charAt(i);     
+            position += constantHashInt * position + key.charAt(i);     //allows for a word to get different positions based on the order of letters (i.e. team and meat will not have the same positon)
         }    
         return position % size;     //mod the position by size of the hash array to keep it inside the limits of the hasharray
     }
