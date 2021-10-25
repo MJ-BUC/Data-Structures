@@ -7,7 +7,7 @@ public class DoublyLinkedList {
     private MyNode head;
     private MyNode tail;
 
-    public DoublyLinkedList(MyNode newnode) {     //Doubly linked List constructor interger passed to create first node
+    public DoublyLinkedList(MyNode newnode) {     //Doubly linked List constructor node passed to create first node
         if (head == null) {                 //creates firstode if the list is empty aka head equals null
             head = newnode;        //set the new node to head and hold the arg passed, data
             tail = head;                    //set the tail equal to head to make it doubly linked, and make the one node be the head and tail
@@ -107,8 +107,8 @@ public class DoublyLinkedList {
 
         int count = 0;                      //creates counter keeps track of how many times traversed
         
-        if (isEmpty() || size() <= 1) {                    //error handler for deleting if a list is empty
-            System.out.println("The list or stack is empty. Cannot Delete!");
+        if (isEmpty() || size() < 1) {                    //error handler for deleting if a list is empty
+            System.out.println("The list is empty. Cannot Delete!");
         }
         
         else if (pos > size() || pos < 0) {               //error handler for entered position being less than 0 or greater than the overall size of the list
@@ -165,7 +165,11 @@ public class DoublyLinkedList {
         
         else {
 
-            if (cursor.getKey() == key) {                                  //when the first cursor is on the desired num this section runs and will only cath the head of the linked list
+            if (cursor.getKey() == key && cursor.getNext() == null) {
+                head = null;
+            }
+            
+            else if (cursor.getKey() == key) {                                  //when the first cursor is on the desired num this section runs and will only cath the head of the linked list
                 head = cursor2;                                             //sets the next node after the pointer "cursor" to the current spot of pointer "cursor"
                 cursor2.setPrev(null);                                      //sets the previous pointer from cursor2 to null breaking connection
                 cursor.setNext(null);                                       //sets the next pointer from cursor to null breaking connection
@@ -207,17 +211,17 @@ public class DoublyLinkedList {
         }
     }
 
-    public MyNode NodeFind(String key) {
-        MyNode cursor = head;
-        String value = head.getKey();
+    public MyNode NodeFind(String key) {                        //finds a node in the linked list and returns the node
+        MyNode cursor = head;                                   //cursor is set to head
+        String value = head.getKey();                           //gets the key of the head node and stores it in value
 
-        if (size() == 0) {
+        if (size() == 0) {                                      //returns null if list is empty
             return null;
         }
         else {
-            while(value != key && cursor.getNext() != null) {
-                value = cursor.getKey();
-                cursor = cursor.getNext();
+            while(value != key && cursor.getNext() != null) {   //finds node until the value equals the key and the next node is not null
+                value = cursor.getKey();                        //gets the key of the node
+                cursor = cursor.getNext();                      //gets the next item in the list
                 if (value == key) {
                     return cursor;
                 }
@@ -251,7 +255,8 @@ public class DoublyLinkedList {
     }
 
     public MyNode getHead() {
-        if (size() >= 1) {
+        MyNode cursor = head;
+        if (size() >= 1 && cursor != null) {
             return head;
         }
         return null;

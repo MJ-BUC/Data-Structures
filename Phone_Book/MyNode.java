@@ -14,7 +14,7 @@ public class MyNode {
 		prev = null;		 //initialize prev to null
 	}
 
-	public String getKey() {
+	public String getKey() {	//gets the key from the linked list
 		return nodeKey;
 	}
 
@@ -26,7 +26,7 @@ public class MyNode {
 		nodeData = value;	//set node's data
 	}
 
-	public void setKey(String key) {
+	public void setKey(String key) {	//sets the key in the linked list
 		nodeKey = key;
 	}
 	
