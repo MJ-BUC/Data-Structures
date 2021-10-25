@@ -10,10 +10,11 @@ public class PhoneBookDemo {
         myPhoneBook.Insert("Caden", 213);
         myPhoneBook.Insert("Mark", 312);
         myPhoneBook.Insert("George", 630);
+        
         myPhoneBook.Delete("George");
         
         myPhoneBook.Print();
-        
+
         myPhoneBook.Retrieve("Caden");        
     }
 }
