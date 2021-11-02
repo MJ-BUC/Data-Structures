@@ -38,15 +38,15 @@ public class BinaySearchTree {
 
     }
 
-    public void PrintPreorder() {
+    public void Print_Preorder() {
 
     }
 
-    public void PrintInorder() {
+    public void Print_Inorder() {
 
     }
 
-    public void PrintPostorder() {
+    public void Print_Postorder() {
 
     }
 }
