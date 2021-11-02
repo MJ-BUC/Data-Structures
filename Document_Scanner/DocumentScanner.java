@@ -1,5 +1,5 @@
 package CSCE210.Document_Scanner;
 
-public class DocumantScanner {
+public class DocumentScanner {
     
 }

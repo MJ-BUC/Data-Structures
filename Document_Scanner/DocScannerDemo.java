@@ -9,7 +9,7 @@ public class DocScannerDemo {
 	public static void main(String[] args) {
 		//testing an empty document scanner
 		System.out.print("Creating an empty Document Scanner\n");
-		DocScanner myScanner = new DocScanner();
+		DocumentScanner myScanner = new DocumentScanner();
 		System.out.print("Printing Document Scanner items inorder:\n");
 		myScanner.PrintInorder();
 		System.out.print("Printing Max Word:\n");
