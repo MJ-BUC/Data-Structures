@@ -1,15 +1,13 @@
 package CSCE210.Document_Scanner;
 
+import java.io.FileNotFoundException;
+
 public class DocScannerDemo {
 
-	public DocScannerDemo() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		//testing an empty document scanner
 		System.out.print("Creating an empty Document Scanner\n");
-		DocumentScanner myScanner = new DocumentScanner();
+		DocScanner myScanner = new DocScanner();
 		System.out.print("Printing Document Scanner items inorder:\n");
 		myScanner.PrintInorder();
 		System.out.print("Printing Max Word:\n");
