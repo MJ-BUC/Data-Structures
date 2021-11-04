@@ -43,7 +43,15 @@ public class BinarySearchTree {
     }
 
     public BinarySearchTreeNode Search(String key) {
-        return null;
+        if (key == root) {
+            return key.getValue();
+        }
+        else if (HashGenerator(key) < HashGenerator(root)) {
+            return null; //--do not use null-- recursive statement for left side of tree
+        }
+        else {
+            return null; // --do not use null-- recursive statement for right side of tree
+        }
         
     }
 
@@ -51,6 +59,7 @@ public class BinarySearchTree {
 
     }
 
+    //HELPER FUNCTIONS
     public BinarySearchTreeNode FindSmallestRightChild(BinarySearchTreeNode subtreeroot) {
         return subtreeroot;
 
@@ -60,6 +69,7 @@ public class BinarySearchTree {
         return subtreeroot;
 
     }
+    //HELPER FUNCTIONS
 
     public void Print_Preorder() {
 
