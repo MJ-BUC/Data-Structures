@@ -16,7 +16,7 @@ public class DocScannerDemo {
 
 		//testing document scanner with a short test file
 		System.out.print("Scanning document 'test.txt' into document scanner.\n");
-		myScanner.ScanDocument("test.txt");
+		myScanner.ScanDocument("/home/mark/Documents/Github/CSCE210/Document_Scanner/test.txt");
 		// System.out.print("Printing Document Scanner items inorder: ");
 		// myScanner.PrintInorder();
 		// System.out.print("\n");
