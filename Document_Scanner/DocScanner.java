@@ -9,7 +9,7 @@ public class DocScanner {
     BinarySearchTree myBST;
     
     public DocScanner(String filename) {
-
+        
     }
 
     public DocScanner() {

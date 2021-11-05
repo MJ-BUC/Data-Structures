@@ -39,7 +39,6 @@ public class BinarySearchTree {
 
     public BinarySearchTreeNode FindParent(String key) {
         return null;
-        
     }
 
     public BinarySearchTreeNode Search(String key) {
@@ -52,7 +51,6 @@ public class BinarySearchTree {
         else {
             return null; // --do not use null-- recursive statement for right side of tree
         }
-        
     }
 
     public void Delete(String key) {
