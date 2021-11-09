@@ -45,4 +45,19 @@ public class BinarySearchTreeNode {
 	public void setLeftNode(BinarySearchTreeNode newnode) {
 		leftChlld = newnode; //set node's next pointer
 	}
+
+	public int GetNumberOfChildren() {
+		if (getLeftNode() == null && getLeftNode() == null) {
+			return 0;
+		}
+		else if (getLeftNode() == null && getRightNode() != null) {
+			return 1;
+		}
+		else if (getLeftNode() != null && getRightNode() == null) {
+			return 1;
+		}
+		else {
+			return 2;
+		}
+	}
 }

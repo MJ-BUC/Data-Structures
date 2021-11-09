@@ -45,14 +45,14 @@ public class DocScanner {
     }
 
     public void PrintPreorder() {
-        myBST.Print_Preorder();
+        myBST.Preorder_Helper();
     }
 
     public void PrintInorder() {
-        myBST.Print_Inorder();
+        myBST.Inorder_Helper();
     }
 
     public void PrintPostorder() {
-        myBST.Print_Postorder();
+        myBST.Postorder_Helper();
     }
 }
