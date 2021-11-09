@@ -60,18 +60,23 @@ public class BinarySearchTree {
             BinarySearchTreeNode node = cursor;
             return node;
         }
-        else if (HashGenerator(key) == HashGenerator(cursor.getValue())) {
-            BinarySearchTreeNode node = cursor;
+        else if (HashGenerator(key) == HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
+            // BinarySearchTreeNode node = cursor;
             // cursor = root;
-            return node;
-        }
-        else if (HashGenerator(key) < HashGenerator(cursor.getValue())) {
+            // return node;
             cursor = cursor.getLeftNode();
             return FindParent(key);
         }
-        else {
+        else if (HashGenerator(key) < HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
+            cursor = cursor.getLeftNode();
+            return FindParent(key);
+        }
+        else if (HashGenerator(key) > HashGenerator(cursor.getValue()) && cursor.getRightNode() != null) {
             cursor = cursor.getRightNode();
             return FindParent(key);
+        }
+        else {
+            return cursor;
         }
     }
 
