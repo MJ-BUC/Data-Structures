@@ -2,7 +2,7 @@ package CSCE210.Document_Scanner;
 
 public class BinarySearchTreeNode {
 
-	private String nodeData;	//node's data
+	// private String nodeData;	//node's data
 	private String nodeKey;
 	private BinarySearchTreeNode rightChild;	//node's next pointer
 	private BinarySearchTreeNode leftChlld;	//node's prev pointer
@@ -19,11 +19,11 @@ public class BinarySearchTreeNode {
 	// }
 
 	public String getValue() {
-		return nodeData;	//return node's data
+		return nodeKey;	//return node's data
 	}
 
 	public void setValue(String key) {
-		nodeData = key;	//set node's data
+		nodeKey = key;	//set node's data
 	}
 
 	// public void setKey(String key) {	//sets the key in the linked list

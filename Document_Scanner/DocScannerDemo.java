@@ -8,24 +8,24 @@ public class DocScannerDemo {
 		//testing an empty document scanner
 		System.out.print("Creating an empty Document Scanner\n");
 		DocScanner myScanner = new DocScanner();
-		// System.out.print("Printing Document Scanner items inorder:\n");
-		// myScanner.PrintInorder();
-		// System.out.print("Printing Max Word:\n");
-		// myScanner.PrintMaxWord();
-		// System.out.print("\n");
+		System.out.print("Printing Document Scanner items inorder:\n");
+		myScanner.PrintInorder();
+		System.out.print("Printing Max Word:\n");
+		myScanner.PrintMaxWord();
+		System.out.print("\n");
 
 		//testing document scanner with a short test file
 		System.out.print("Scanning document 'test.txt' into document scanner.\n");
 		myScanner.ScanDocument("/home/mark/Documents/Github/CSCE210/Document_Scanner/test.txt");
-		// System.out.print("Printing Document Scanner items inorder: ");
-		// myScanner.PrintInorder();
-		// System.out.print("\n");
-		// System.out.print("Printing Document Scanner items preorder: ");
-		// myScanner.PrintPreorder();
-		// System.out.print("\n");
-		// System.out.print("Printing Document Scanner items postorder: ");
-		// myScanner.PrintPostorder();
-		// System.out.println("\n");
+		System.out.print("Printing Document Scanner items inorder: ");
+		myScanner.PrintInorder();
+		System.out.print("\n");
+		System.out.print("Printing Document Scanner items preorder: ");
+		myScanner.PrintPreorder();
+		System.out.print("\n");
+		System.out.print("Printing Document Scanner items postorder: ");
+		myScanner.PrintPostorder();
+		System.out.println("\n");
 
 		// //testing PrintMaxWord and deletions
 		// System.out.print("Printing Max Word:\n");

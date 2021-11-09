@@ -5,6 +5,7 @@ public class BinarySearchTree {
     private BinarySearchTreeNode rightChild;
     private BinarySearchTreeNode leftChild;
     private BinarySearchTreeNode root;
+    private BinarySearchTreeNode cursor;
 
     public BinarySearchTree(String key) {
         BinarySearchTreeNode newnode = BinarySearchTreeNode(key);
@@ -28,17 +29,50 @@ public class BinarySearchTree {
     }
 
     public void Insert(BinarySearchTreeNode parentNode, BinarySearchTreeNode newnode) {
-        int hash = HashGenerator(parentNode.getValue());
+
+        if (root == null) {
+            root = newnode;
+        }
+        else {
+            int hash = HashGenerator(parentNode.getValue());
+            if (HashGenerator(newnode.getValue()) < hash) {
+                parentNode.setLeftNode(newnode);
+            }
+            else if (HashGenerator(newnode.getValue()) > hash) {
+                parentNode.setRightNode(newnode);
+            }
+            else {
+                parentNode.setLeftNode(newnode);
+            }
+        }
     }
 
     public void Insert(String key) {
+        cursor = root;
         BinarySearchTreeNode newnode = new BinarySearchTreeNode(key);
         BinarySearchTreeNode parentNode = FindParent(key);
         Insert(parentNode, newnode);
     }
 
+    //fix problem with recursion and not traversing with cursor correctly. EX line 68 there is no left node and hits null.
     public BinarySearchTreeNode FindParent(String key) {
-        return null;
+        if (root == null) {
+            BinarySearchTreeNode node = cursor;
+            return node;
+        }
+        else if (HashGenerator(key) == HashGenerator(cursor.getValue())) {
+            BinarySearchTreeNode node = cursor;
+            // cursor = root;
+            return node;
+        }
+        else if (HashGenerator(key) < HashGenerator(cursor.getValue())) {
+            cursor = cursor.getLeftNode();
+            return FindParent(key);
+        }
+        else {
+            cursor = cursor.getRightNode();
+            return FindParent(key);
+        }
     }
 
     public BinarySearchTreeNode Search(String key) {
@@ -57,7 +91,7 @@ public class BinarySearchTree {
 
     }
 
-    //HELPER FUNCTIONS
+    //--HELPER FUNCTIONS--
     public BinarySearchTreeNode FindSmallestRightChild(BinarySearchTreeNode subtreeroot) {
         return subtreeroot;
 
@@ -67,7 +101,7 @@ public class BinarySearchTree {
         return subtreeroot;
 
     }
-    //HELPER FUNCTIONS
+    //--HELPER FUNCTIONS--
 
     public void Print_Preorder() {
 
