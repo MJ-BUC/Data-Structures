@@ -1,15 +1,19 @@
 package CSCE210.Document_Scanner;
 
+import javax.lang.model.type.NullType;
+
 public class BinarySearchTree {
 
     private BinarySearchTreeNode rightChild;
     private BinarySearchTreeNode leftChild;
     private BinarySearchTreeNode root;
     private BinarySearchTreeNode cursor;
+    private BinarySearchTreeNode cursor2;
 
     public BinarySearchTree(String key) {
         BinarySearchTreeNode newnode = BinarySearchTreeNode(key);
         root = newnode;
+       
     }
 
     public BinarySearchTree() {
@@ -39,6 +43,7 @@ public class BinarySearchTree {
                 parentNode.setLeftNode(newnode);
             }
             else if (HashGenerator(newnode.getValue()) > hash) {
+                System.out.println("Setting " + parentNode.getValue() + "'s right child to " + newnode.getValue());
                 parentNode.setRightNode(newnode);
             }
             else {
@@ -56,11 +61,11 @@ public class BinarySearchTree {
 
     //fix problem with recursion and not traversing with cursor correctly. EX line 68 there is no left node and hits null.
     public BinarySearchTreeNode FindParent(String key) {
+
         if (root == null) {
-            BinarySearchTreeNode node = cursor;
-            return node;
+            return null;
         }
-        else if (HashGenerator(key) == HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
+        else if (HashGenerator(key) == HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null && HashGenerator(key) == HashGenerator(cursor.getLeftNode().getValue())) {
             // BinarySearchTreeNode node = cursor;
             // cursor = root;
             // return node;
@@ -68,14 +73,35 @@ public class BinarySearchTree {
             return FindParent(key);
         }
         else if (HashGenerator(key) < HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
-            cursor = cursor.getLeftNode();
-            return FindParent(key);
+            
+            if (HashGenerator(key) == HashGenerator(cursor.getLeftNode().getValue())) {
+                if (cursor.getLeftNode().getLeftNode() != null && HashGenerator(cursor.getLeftNode().getLeftNode().getValue()) == HashGenerator(key)) {
+                    cursor = cursor.getLeftNode();
+                    return FindParent(key);
+                }
+                return cursor.getLeftNode();
+            }
+            else {
+                cursor = cursor.getLeftNode();
+                return FindParent(key);
+            }            
         }
         else if (HashGenerator(key) > HashGenerator(cursor.getValue()) && cursor.getRightNode() != null) {
-            cursor = cursor.getRightNode();
-            return FindParent(key);
+            if (HashGenerator(key) == HashGenerator(cursor.getRightNode().getValue())) {
+                if (cursor.getRightNode().getLeftNode() != null && HashGenerator(cursor.getRightNode().getLeftNode().getValue()) == HashGenerator(key)) {
+                    cursor = cursor.getRightNode();
+                    return FindParent(key);
+                }
+                return cursor;
+            }
+            else {
+                cursor = cursor.getRightNode();
+                return FindParent(key);
+            }            
         }
         else {
+            System.out.println("checking right child = null" + key + cursor.getRightNode());
+            System.out.println(cursor.getValue());
             return cursor;
         }
     }
@@ -90,60 +116,129 @@ public class BinarySearchTree {
         // else {
         //     return null; // --do not use null-- recursive statement for right side of tree
         // }
+        cursor2 = root;
+        int h = HashGenerator(key);
         if (root == null) {
-            BinarySearchTreeNode node = cursor;
+            BinarySearchTreeNode node = cursor2;
             return node;
         }
-        else if (HashGenerator(key) == HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
+        else if (h == HashGenerator(cursor2.getValue())) {
             // BinarySearchTreeNode node = cursor;
             // cursor = root;
             // return node;
-            cursor = cursor.getLeftNode();
-            return FindParent(key);
-        }
-        else if (HashGenerator(key) < HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
-            cursor = cursor.getLeftNode();
-            return FindParent(key);
-        }
-        else if (HashGenerator(key) > HashGenerator(cursor.getValue()) && cursor.getRightNode() != null) {
-            cursor = cursor.getRightNode();
-            return FindParent(key);
+            return cursor2;
         }
         else {
-            return cursor;
+            while (cursor2 != null && !(cursor2.getValue().equals(key)))
+            {
+                if (h < HashGenerator(cursor2.getValue()))
+                    cursor2 = cursor2.getLeftNode();
+                else if (h > HashGenerator(cursor2.getValue()))
+                    cursor2 = cursor2.getRightNode();
+                // System.out.println(cursor2.getValue() == key);
+            }
+
+            return cursor2;
+        }
+    }
+
+    //helper function for dealing with a node that has 1 child
+    public void splice(String key) {
+        System.out.println("Deleting key:" + key);
+        BinarySearchTreeNode node = Search(key);
+        BinarySearchTreeNode parentOfNode = FindParent(key);
+        System.out.println(parentOfNode.getValue());
+
+        if (parentOfNode.getRightNode() == node) {
+            if (node.getLeftNode() != null && node.GetNumberOfChildren() == 1) {
+                parentOfNode.setRightNode(node.getLeftNode());
+            }
+            else if (node.getRightNode() != null && node.GetNumberOfChildren() == 1) {
+                parentOfNode.setRightNode(node.getRightNode());
+            }
+            
+            else if (node.GetNumberOfChildren() == 0) {
+                parentOfNode.setRightNode(null);
+            }
+        }
+        else {
+            if (node.getLeftNode() != null && node.GetNumberOfChildren() == 1) {
+                parentOfNode.setLeftNode(node.getLeftNode());
+            }
+            else if (node.getRightNode() != null && node.GetNumberOfChildren() == 1) {
+                parentOfNode.setLeftNode(node.getRightNode());
+            }
+            
+            else if (node.GetNumberOfChildren() == 0) {
+                parentOfNode.setLeftNode(null);
+            }
         }
     }
 
     public void Delete(String key) {
+        cursor = root;
         BinarySearchTreeNode node = Search(key);
-
+        System.out.println("searching for she: " + node.getValue());
+        BinarySearchTreeNode p = FindParent(key);
+        //deleting the root node of BST
         if (root == null) {
             System.out.println("Trying to delete nothing!!");
         }
-        if (FindParent(key) == null) {
+        else if (p == null) {
             System.out.println("parent is null");
         }
-        if (root == key && GetNumberOfChildren() == 0) {
+        else if (root == Search(key) && root.GetNumberOfChildren() == 0) {
             root = null;
         }
+        else if (root.GetNumberOfChildren() == 1 && root.getValue() == key) {
+            splice(key);
+        }
+        else if (root.GetNumberOfChildren() == 2 && root.getValue() == key) {
+            BinarySearchTreeNode rootSmallestRight = root.getRightNode();
+            while (rootSmallestRight.getLeftNode() != null) {
+                rootSmallestRight = rootSmallestRight.getLeftNode();
+            }
+            root = rootSmallestRight;
+            splice(rootSmallestRight.getValue());
+        }
+        
+        //deleting when node has 1 child else deletes when node has 2 children
+        if (node.getLeftNode() == null || node.getRightNode() == null) {
+            splice(key);
+        }
+        else {
+            BinarySearchTreeNode smallestRight = node.getRightNode();
+            while (smallestRight.getLeftNode() != null) {
+                smallestRight = smallestRight.getLeftNode();
+            }
+            node = smallestRight;
+            splice(smallestRight.getValue());
+        }
+
         BinarySearchTreeNode foundParent = FindParent(key);
 
         //deleting if there are 0 children
-        if (node.GetNumberOfChildren() == 0) {
-            if (foundParent.getLeftNode() == node) {
-                foundParent.setLeftNode(null);
-            }
-            else {
-                foundParent.setRightNode(null);
-            }
-        }
-        else if (node.GetNumberOfChildren() == 1) {
+        // if (node.GetNumberOfChildren() == 0) {
+        //     if (foundParent.getLeftNode() == node) {
+        //         foundParent.setLeftNode(null);
+        //     }
+        //     else {
+        //         foundParent.setRightNode(null);
+        //     }
+        // }
+        // else if (node.GetNumberOfChildren() == 1) {
             
-        }
+        // }
     }
 
     //--HELPER FUNCTIONS--
     public BinarySearchTreeNode FindSmallestRightChild(BinarySearchTreeNode subtreeroot) {
+        if (subtreeroot.getRightNode() != null) {
+            subtreeroot = subtreeroot.getRightNode();
+            if (subtreeroot.getLeftNode() != null) {
+                FindSmallestRightChild(subtreeroot.getLeftNode());
+            }
+        }
         return subtreeroot;
 
     }

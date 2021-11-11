@@ -22,7 +22,6 @@ public class DocScanner {
         Scanner text = new Scanner(file).useDelimiter("[;\r\n ]+");
         while (text.hasNext()) {
             String word = text.next();
-            // System.out.print(word + " ");
             myBST.Insert(word);
         }
         text.close();
@@ -33,11 +32,11 @@ public class DocScanner {
     }
 
     public void Search(String word) {
-
+        myBST.Search(word);
     }
 
-    public void Delete(String word) {
-
+    public void delete(String word) {
+        myBST.Delete(word);
     }
 
     public void PrintMaxWord() {
