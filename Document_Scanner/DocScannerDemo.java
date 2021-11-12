@@ -51,8 +51,8 @@ public class DocScannerDemo {
 		// myScanner.delete("alice");
 		// myScanner.delete("alice");
 		// myScanner.delete("alice");
-		// myScanner.delete("filled");
-		myScanner.delete("reading");
+		myScanner.delete("filled");
+		// myScanner.delete("reading");
 		System.out.print("Printing Document Scanner items inorder: ");
 		myScanner.PrintInorder();
 		System.out.println("\n");
