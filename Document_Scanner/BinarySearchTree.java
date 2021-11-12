@@ -72,8 +72,8 @@ public class BinarySearchTree {
             cursor = cursor.getLeftNode();
             return FindParent(key);
         }
+        //does not return the left child parent on left side of tree
         else if (HashGenerator(key) < HashGenerator(cursor.getValue()) && cursor.getLeftNode() != null) {
-            
             if (HashGenerator(key) == HashGenerator(cursor.getLeftNode().getValue())) {
                 if (cursor.getLeftNode().getLeftNode() != null && HashGenerator(cursor.getLeftNode().getLeftNode().getValue()) == HashGenerator(key)) {
                     cursor = cursor.getLeftNode();
@@ -86,6 +86,7 @@ public class BinarySearchTree {
                 return FindParent(key);
             }            
         }
+        //does not return the left child parent on right side of tree
         else if (HashGenerator(key) > HashGenerator(cursor.getValue()) && cursor.getRightNode() != null) {
             if (HashGenerator(key) == HashGenerator(cursor.getRightNode().getValue())) {
                 if (cursor.getRightNode().getLeftNode() != null && HashGenerator(cursor.getRightNode().getLeftNode().getValue()) == HashGenerator(key)) {
