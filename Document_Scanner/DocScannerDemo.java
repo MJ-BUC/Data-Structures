@@ -12,7 +12,7 @@ public class DocScannerDemo {
 		System.out.print("Creating an empty Document Scanner\n");
 		DocScanner myScanner = new DocScanner();
 		System.out.print("Printing Document Scanner items inorder:\n");
-		myScanner.PrintInorder();
+		// myScanner.PrintInorder();
 		System.out.print("Printing Max Word:\n");
 		myScanner.PrintMaxWord();
 		System.out.print("\n");
@@ -47,12 +47,12 @@ public class DocScannerDemo {
 		// myScanner.PrintPostorder();
 		// System.out.println("\n");
 		System.out.print("Deleting 'filled' and 'she' again.\n");
-		myScanner.delete("she");
-		myScanner.delete("alice");
+		// myScanner.delete("she");
+		// myScanner.delete("alice");
 		// myScanner.delete("alice");
 		// myScanner.delete("alice");
 		// myScanner.delete("filled");
-		// myScanner.delete("she");
+		myScanner.delete("reading");
 		System.out.print("Printing Document Scanner items inorder: ");
 		myScanner.PrintInorder();
 		System.out.println("\n");
