@@ -15,7 +15,7 @@ public class DocScannerDemo {
 		System.out.print("\n");
 
 		//testing document scanner with a short test file
-		///home/mark/Documents/Github/CSCE210/Document_Scanner/test.txt  ###Ubuntu machine file path
+		// /home/mark/Documents/Github/CSCE210/Document_Scanner/test.txt  ###Ubuntu machine file path
 		System.out.print("Scanning document 'test.txt' into document scanner.\n");
 		myScanner.ScanDocument("C:/Users/lunke/OneDrive/Documents/GitHub/CSCE210/Document_Scanner/test.txt");
 		System.out.print("Printing Document Scanner items inorder: ");
@@ -62,7 +62,7 @@ public class DocScannerDemo {
 
 		// //running with long text file
 		// System.out.print("Scanning document 'alice.txt' into document scanner.\n");
-		// myScanner.ScanDocument("alice.txt");
+		// myScanner.ScanDocument("C:/Users/lunke/OneDrive/Documents/GitHub/CSCE210/Document_Scanner/alice.txt");
 		// System.out.print("Printing Document Scanner items inorder: ");
 		// myScanner.PrintInorder();
 		// System.out.print("\n");
@@ -92,6 +92,6 @@ public class DocScannerDemo {
 
 		// System.out.print("Printing Document Scanner items preorder: ");
 		// myScanner.PrintPreorder();
-		// System.out.print("\n\nDocument Scanner Demo done :)\n");
+		System.out.print("\n\nDocument Scanner Demo done :)\n");
 	}
 }

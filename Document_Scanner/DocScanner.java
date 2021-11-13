@@ -31,8 +31,9 @@ public class DocScanner {
         }
     }
 
-    public void Search(String word) {
-        myBST.Search(word);
+    public String Search(String word) {
+        String foundWord = myBST.Search(word).getValue();
+        return foundWord;
     }
 
     public void delete(String word) {
@@ -40,7 +41,7 @@ public class DocScanner {
     }
 
     public void PrintMaxWord() {
-
+        myBST.Max_Helper();
     }
 
     public void PrintPreorder() {

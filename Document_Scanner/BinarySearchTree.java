@@ -4,12 +4,11 @@ import javax.lang.model.type.NullType;
 
 public class BinarySearchTree {
 
-    private BinarySearchTreeNode rightChild;
-    private BinarySearchTreeNode leftChild;
     private BinarySearchTreeNode root;
     private BinarySearchTreeNode cursor;
     private BinarySearchTreeNode cursor2;
     private Boolean FindParentFlag = false;
+    private LinkedList myList = null;
 
     public BinarySearchTree(String key) {
         BinarySearchTreeNode newnode = BinarySearchTreeNode(key);
@@ -109,23 +108,7 @@ public class BinarySearchTree {
         if (root == null) {
             return null;
         }
-        // else if (root.getLeftNode() != null && HashGenerator(key) == HashGenerator(root.getLeftNode().getValue())) {
-        //     return root;
-        // }
-        // else if (root.getRightNode() != null && HashGenerator(key) == HashGenerator(root.getRightNode().getValue())) {
-        //     return root;
-        // }
         else if (HashGenerator(key) < HashGenerator(root.getValue())) {
-            // if (cursor.getLeftNode() != null && cursor.getLeftNode().getLeftNode() != null && cursor.getLeftNode() == Search(key)) {
-            //     cursor = cursor.getLeftNode();
-            //     FindParent(key);
-            // }
-
-            // else if (cursor.getLeftNode() != null && cursor.getLeftNode()!= null && cursor.getLeftNode() == Search(key)) {
-            //     cursor = cursor.getLeftNode();
-            //     FindParent(key);
-            // }
-
             if (FindParentFlag == true && cursor.getLeftNode() != null && cursor.getLeftNode().getValue().equals(key)) {
                 return cursor;
             }
@@ -149,16 +132,6 @@ public class BinarySearchTree {
         }
 
         else if (HashGenerator(key) > HashGenerator(root.getValue())) {
-            // if (cursor.getRightNode() != null && cursor.getRightNode().getLeftNode() != null && cursor.getLeftNode() == Search(key)) {
-            //     cursor = cursor.getLeftNode();
-            //     FindParent(key);
-            // }
-
-            // else if (cursor.getRightNode() != null && cursor.getRightNode()!= null && cursor.getRightNode() == Search(key)) {
-            //     cursor = cursor.getRightNode();
-            //     FindParent(key);
-            // }
-            
             if (cursor.getRightNode() != null && cursor.getRightNode() != Search(key)) {
                 cursor = cursor.getRightNode();
                 FindParent(key);
@@ -181,15 +154,6 @@ public class BinarySearchTree {
     }
 
     public BinarySearchTreeNode Search(String key) {
-        // if (key == root) {
-        //     return key.getValue();
-        // }
-        // else if (HashGenerator(key) < HashGenerator(root)) {
-        //     return null; //--do not use null-- recursive statement for left side of tree
-        // }
-        // else {
-        //     return null; // --do not use null-- recursive statement for right side of tree
-        // }
         cursor2 = root;
         int h = HashGenerator(key);
         if (root == null) {
@@ -206,7 +170,6 @@ public class BinarySearchTree {
                     cursor2 = cursor2.getLeftNode();
                 else if (h > HashGenerator(cursor2.getValue()))
                     cursor2 = cursor2.getRightNode();
-                // System.out.println(cursor2.getValue() == key);
             }
 
             return cursor2;
@@ -293,19 +256,18 @@ public class BinarySearchTree {
     }
 
     //--HELPER FUNCTIONS--
-    public BinarySearchTreeNode FindSmallestRightChild(BinarySearchTreeNode subtreeroot) {
-        // if (subtreeroot.getRightNode() != null) {
-        //     subtreeroot = subtreeroot.getRightNode();
-        //     if (subtreeroot.getLeftNode() != null) {
-        //         FindSmallestRightChild(subtreeroot.getLeftNode());
-        //     }
-        // }
-        return subtreeroot;
+    public void MaxWordHelper(BinarySearchTreeNode cursor) {
+        if (root == null) 
+            return;
+        if (cursor.getLeftNode() != null)
+            Print_Inorder(cursor.getLeftNode());
+        myList.add(cursor.getValue());
+        if (cursor.getRightNode() != null)
+            Print_Inorder(cursor.getRightNode());
     }
 
-    public BinarySearchTreeNode PruneSmallestRightChild(BinarySearchTreeNode subtreeroot) {
-        return subtreeroot;
-
+    public void Max_Helper() {
+        MaxWordHelper(root);
     }
     //--HELPER FUNCTIONS--
 
