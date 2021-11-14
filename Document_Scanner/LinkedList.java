@@ -6,10 +6,8 @@ public class LinkedList {
 
     private MyNode head;
 
-    public LinkedList(String word) {
-        if (head == null) {
-            head = new MyNode(word);
-        }
+    public LinkedList() {
+      // TODO document why this constructor is empty
     }
 
     public int size() {
@@ -125,34 +123,83 @@ public class LinkedList {
             cursor = cursor.getNext();
         }
     }
-    // public static void main(String[] args) {
-    //     LinkedList mylist = new LinkedList();
-    //     mylist.add("bird");                          //adding items to the linked list
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //-
-    //     mylist.add("bird");                          //adding items to the linked list
 
-    //     mylist.insert("cat", 3);                    //inserts 9 at the third position
-    //     mylist.insert("dog", 0);                    //inserts 2 at position zero, which is the head
+    //max word helper function for BST
+    public String FindMaxWord() {
+        int tempCount = 0;
+        int maxCount = 0;
+        String maxWord = "";
+        String currentWord;
+        MyNode cursor = head;
 
-    //     mylist.remove("bird");                       //removes the fist instance of 8 which is the last position
-    //     mylist.remove("bird");                       //removes the first instance of 4 and removes the 4 that comes before the second
-    //     mylist.remove("bird");                       //removes the first instance of 2 which is also the head
+        while (cursor != null && cursor.getNext() != null) {
+            currentWord = cursor.getData();
+            tempCount++;
+            if (cursor.getNext().getData() != currentWord && tempCount > maxCount) {
+                maxCount = tempCount;
+                maxWord = currentWord;
+                tempCount = 0;
+            }
+            else if (cursor.getNext().getData() != currentWord) {
+                tempCount = 0;
+            }
+            cursor = cursor.getNext();
+        }
+        return maxWord;
+    }
 
-    //     mylist.delete(2);                       //deletes positio 2 of the linked list, 0 is deleted
-    //     mylist.delete(0);                       //deletes position 0 of the linked list, which is the head and deletes 5
+    public int FindMaxWordCount() {
+        int tempCount = 0;
+        int maxCount = 0;
+        String maxWord = "";
+        String currentWord;
+        MyNode cursor = head;
 
-    //     mylist.print();
+        while (cursor != null && cursor.getNext() != null) {
+            currentWord = cursor.getData();
+            tempCount++;
+            if (!(cursor.getNext().getData().equals(currentWord)) && tempCount > maxCount) {
+                maxCount = tempCount;
+                maxWord = currentWord;
+                tempCount = 0;
+            }
+            else if (!(cursor.getNext().getData().equals(currentWord))) {
+                tempCount = 0;
+            }
+            cursor = cursor.getNext();
+        }
+        return maxCount;
+    }
+    //max word helper function for BST
+    
+    public static void main(String[] args) {
+        LinkedList mylist = new LinkedList();
+        mylist.add("bird");                          //adding items to the linked list
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //-
+        mylist.add("bird");                          //adding items to the linked list
 
-    //     System.out.println();
-    //     System.out.print("Is empty: ");
-    //     System.out.println(mylist.isEmpty());       //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
-    //     System.out.print("Size: ");
-    //     System.out.print(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
-    // }
+        mylist.insert("cat", 3);                    //inserts 9 at the third position
+        mylist.insert("dog", 0);                    //inserts 2 at position zero, which is the head
+
+        mylist.remove("bird");                       //removes the fist instance of 8 which is the last position
+        mylist.remove("bird");                       //removes the first instance of 4 and removes the 4 that comes before the second
+        mylist.remove("bird");                       //removes the first instance of 2 which is also the head
+
+        mylist.delete(2);                       //deletes positio 2 of the linked list, 0 is deleted
+        mylist.delete(0);                       //deletes position 0 of the linked list, which is the head and deletes 5
+
+        mylist.print();
+
+        System.out.println();
+        System.out.print("Is empty: ");
+        System.out.println(mylist.isEmpty());       //print whether or not the linked list is empty, this current linked list: is empty = false the list is not empty
+        System.out.print("Size: ");
+        System.out.print(mylist.size());            //print the size of the linked list: this current linked list has a size of 6
+    }
 }

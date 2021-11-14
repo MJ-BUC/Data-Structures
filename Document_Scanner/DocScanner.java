@@ -42,6 +42,7 @@ public class DocScanner {
 
     public void PrintMaxWord() {
         myBST.Max_Helper();
+        myBST.MaxWordCounter();
     }
 
     public void PrintPreorder() {

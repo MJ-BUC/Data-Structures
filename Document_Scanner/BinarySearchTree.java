@@ -1,17 +1,15 @@
 package CSCE210.Document_Scanner;
 
-import javax.lang.model.type.NullType;
-
 public class BinarySearchTree {
 
     private BinarySearchTreeNode root;
     private BinarySearchTreeNode cursor;
     private BinarySearchTreeNode cursor2;
     private Boolean FindParentFlag = false;
-    private LinkedList myList = null;
+    LinkedList myList = new LinkedList();
 
     public BinarySearchTree(String key) {
-        BinarySearchTreeNode newnode = BinarySearchTreeNode(key);
+        BinarySearchTreeNode newnode = new BinarySearchTreeNode(key);
         root = newnode;
        
     }
@@ -260,14 +258,24 @@ public class BinarySearchTree {
         if (root == null) 
             return;
         if (cursor.getLeftNode() != null)
-            Print_Inorder(cursor.getLeftNode());
+            MaxWordHelper(cursor.getLeftNode());
         myList.add(cursor.getValue());
         if (cursor.getRightNode() != null)
-            Print_Inorder(cursor.getRightNode());
+            MaxWordHelper(cursor.getRightNode());
     }
 
     public void Max_Helper() {
+        myList = new LinkedList();
         MaxWordHelper(root);
+    }
+
+    public void MaxWordCounter() {
+        if (myList.FindMaxWordCount() == 0) {
+            System.out.println("There is no maximum word");
+        }
+        else {
+        System.out.println("The Maximum word '" + myList.FindMaxWord() + "' shows up " + myList.FindMaxWordCount() + " times");
+        }
     }
     //--HELPER FUNCTIONS--
 
