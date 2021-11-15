@@ -57,8 +57,8 @@ public class DocScannerDemo {
 		myScanner.delete("alice");
 		myScanner.delete("reading");
 
-		// System.out.print("Searching for 'alice' in the document scanner.\n");
-		// System.out.print("'alice' appears " + myScanner.Search("reading") + " times.\n");
+		System.out.print("Searching for 'alice' in the document scanner.\n");
+		System.out.print("'alice' appears " + myScanner.Search("reading") + " times.\n");
 
 		// //running with long text file
 		System.out.print("Scanning document 'alice.txt' into document scanner.\n");
@@ -73,8 +73,8 @@ public class DocScannerDemo {
 		myScanner.PrintPostorder();
 		System.out.println("\n");
 
-		// System.out.print("Printing Max Word:\n");
-		// myScanner.PrintMaxWord();
+		System.out.print("Printing Max Word:\n");
+		myScanner.PrintMaxWord();
 
 		// //testint searching
 		// System.out.print("Searching for 'alice' in the document scanner.\n");
@@ -90,8 +90,8 @@ public class DocScannerDemo {
 		// System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
 		// System.out.print("\n");
 
-		// System.out.print("Printing Document Scanner items preorder: ");
-		// myScanner.PrintPreorder();
+		System.out.print("Printing Document Scanner items preorder: ");
+		myScanner.PrintPreorder();
 		System.out.print("\n\nDocument Scanner Demo done :)\n");
 	}
 }

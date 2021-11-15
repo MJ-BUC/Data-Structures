@@ -31,9 +31,8 @@ public class DocScanner {
         }
     }
 
-    public String Search(String word) {                         //searches for a word in the BST by passing the word to the search method
-        String foundWord = myBST.Search(word).getValue();
-        return foundWord;
+    public int Search(String word) {                         //searches for a word in the BST by passing the word to the search method
+        return myBST.SearchForWord(word);
     }
 
     public void delete(String word) {           //deletes an the first occurrence of a word from the BST

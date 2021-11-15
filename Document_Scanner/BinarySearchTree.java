@@ -141,6 +141,29 @@ public class BinarySearchTree {
         }
     }
 
+    public int SearchForWord(String key) {            //searches for a node in the BST using a key aka the word you want to search. returns the nede of the key
+        cursor2 = root;
+        int count = 0;
+        int h = HashGenerator(key);
+        if (root == null) {                                     //if the root is null being an empty BST it returns 0
+            return 0;
+        }
+        else {
+            while (cursor2 != null)        //loops through the BST to find the node ehen it is not the root
+            {
+                if (cursor2.getValue().equals(key)) {
+                    count++;
+                }
+                if (h < HashGenerator(cursor2.getValue()))                      //gets the left node when the key value is less than the current cursor value
+                    cursor2 = cursor2.getLeftNode();
+                else if (h > HashGenerator(cursor2.getValue()))                 //gets the right node when the key value is greater than the current cursor value
+                    cursor2 = cursor2.getRightNode();
+            }
+
+            return count;
+        }
+    }
+
     public void splice(String key) {                                            //deletes a node when it has 0 or 1 children and is not an empty root node
         cursor = root;
         FindParentFlag = true;
