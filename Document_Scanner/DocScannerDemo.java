@@ -18,9 +18,8 @@ public class DocScannerDemo {
 		System.out.print("\n");
 
 		//testing document scanner with a short test file
-		// /home/mark/Documents/Github/CSCE210/Document_Scanner/test.txt  ###Ubuntu machine file path
 		System.out.print("Scanning document 'test.txt' into document scanner.\n");
-		myScanner.ScanDocument("C:/Users/lunke/OneDrive/Documents/GitHub/CSCE210/Document_Scanner/test.txt");
+		myScanner.ScanDocument("test.txt");
 		System.out.print("Printing Document Scanner items inorder: ");
 		myScanner.PrintInorder();
 		System.out.print("\n");
@@ -63,9 +62,14 @@ public class DocScannerDemo {
 		System.out.print("Searching for 'alice' in the document scanner.\n");
 		System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
 
+		//every method is working as it should, however for the alice.txt file, some random words are not being inserted into the BST.
+		//It is currently inserting about 98% of the words and I believe it has something to do with either the insert or the findparent.
+		//It doesnt run into any error, however it just seems to skip some words. I tried debugging the program and did not specifically see
+		//any instances where the words were not finding a parent or were not being inserted at a location. That being said I have had a bit of a
+		//hard time trying to find this problem. However, from my point of view I have not been able to find where this is happening.
 		// //running with long text file
 		System.out.print("Scanning document 'alice.txt' into document scanner.\n");
-		myScanner.ScanDocument("C:/Users/lunke/OneDrive/Documents/GitHub/CSCE210/Document_Scanner/alice.txt");
+		myScanner.ScanDocument("alice.txt");
 		System.out.print("Printing Document Scanner items inorder: ");
 		myScanner.PrintInorder();
 		System.out.print("\n");
