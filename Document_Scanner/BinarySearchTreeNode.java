@@ -14,10 +14,6 @@ public class BinarySearchTreeNode {
 		leftChlld = null;		 //initialize prev to null
 	}
 
-	// public String getKey() {	//gets the key from the linked list
-	// 	return nodeKey;
-	// }
-
 	public String getValue() {
 		return nodeKey;	//return node's data
 	}
@@ -25,10 +21,6 @@ public class BinarySearchTreeNode {
 	public void setValue(String key) {
 		nodeKey = key;	//set node's data
 	}
-
-	// public void setKey(String key) {	//sets the key in the linked list
-	// 	nodeKey = key;
-	// }
 	
 	public BinarySearchTreeNode getRightNode() {
 		return rightChild;	//return node's next pointer
@@ -46,7 +38,7 @@ public class BinarySearchTreeNode {
 		leftChlld = newnode; //set node's next pointer
 	}
 
-	public int GetNumberOfChildren() {
+	public int GetNumberOfChildren() {								//returns the number of children a node has in the BST
 		if (getLeftNode() == null && getLeftNode() == null) {
 			return 0;
 		}

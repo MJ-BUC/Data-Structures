@@ -61,17 +61,17 @@ public class DocScannerDemo {
 		// System.out.print("'alice' appears " + myScanner.Search("reading") + " times.\n");
 
 		// //running with long text file
-		// System.out.print("Scanning document 'alice.txt' into document scanner.\n");
-		// myScanner.ScanDocument("C:/Users/lunke/OneDrive/Documents/GitHub/CSCE210/Document_Scanner/alice.txt");
-		// System.out.print("Printing Document Scanner items inorder: ");
-		// myScanner.PrintInorder();
-		// System.out.print("\n");
-		// System.out.print("Printing Document Scanner items preorder: ");
-		// myScanner.PrintPreorder();
-		// System.out.print("\n");
-		// System.out.print("Printing Document Scanner items postorder: ");
-		// myScanner.PrintPostorder();
-		// System.out.println("\n");
+		System.out.print("Scanning document 'alice.txt' into document scanner.\n");
+		myScanner.ScanDocument("C:/Users/lunke/OneDrive/Documents/GitHub/CSCE210/Document_Scanner/alice.txt");
+		System.out.print("Printing Document Scanner items inorder: ");
+		myScanner.PrintInorder();
+		System.out.print("\n");
+		System.out.print("Printing Document Scanner items preorder: ");
+		myScanner.PrintPreorder();
+		System.out.print("\n");
+		System.out.print("Printing Document Scanner items postorder: ");
+		myScanner.PrintPostorder();
+		System.out.println("\n");
 
 		// System.out.print("Printing Max Word:\n");
 		// myScanner.PrintMaxWord();

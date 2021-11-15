@@ -19,7 +19,7 @@ public class DocScanner {
     public void ScanDocument(String filename) throws FileNotFoundException {
         File file = new File(filename);
         try {
-        Scanner text = new Scanner(file).useDelimiter("[;\r\n ]+");
+        Scanner text = new Scanner(file).useDelimiter("[.\r\n ]+");
         while (text.hasNext()) {
             String word = text.next();
             myBST.Insert(word);
