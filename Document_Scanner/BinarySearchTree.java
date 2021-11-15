@@ -30,7 +30,7 @@ public class BinarySearchTree {
         return (int)(hash*Math.E*5/key.length());
     }
 
-    public void Insert(BinarySearchTreeNode parentNode, BinarySearchTreeNode newnode) {         //insert method that gets called in the insert method below
+    public void Insert(BinarySearchTreeNode parentNode, BinarySearchTreeNode newnode, String key) {         //insert method that gets called in the insert method below
 
         if (root == null) {                                             //inserting when the root is null aka an empty BST
             root = newnode;
@@ -38,10 +38,22 @@ public class BinarySearchTree {
         else {
             int hash = HashGenerator(parentNode.getValue());            //saves the hash of the key's parent node
             if (HashGenerator(newnode.getValue()) < hash) {             //insert left of the parent when the newnode is less than the parent
+                if (cursor.getLeftNode() != null && cursor.getLeftNode().getValue().equals(key)) {
+                    newnode.setLeftNode(parentNode.getLeftNode());
+                    parentNode.setLeftNode(newnode);
+                }
+                else {
                 parentNode.setLeftNode(newnode);
+                }
             }
             else if (HashGenerator(newnode.getValue()) > hash) {        //insert right og the parent when the newnode is greater than the parent
+                if (cursor.getRightNode() != null && cursor.getRightNode().getValue().equals(key)) {
+                    newnode.setRightNode(parentNode.getRightNode());
+                    parentNode.setRightNode(newnode);
+                }
+                else {
                 parentNode.setRightNode(newnode);
+                }
             }
             else {
                 parentNode.setLeftNode(newnode);                        //if the node is the same as the parent then it can be inserted to the left of the parent
@@ -51,14 +63,11 @@ public class BinarySearchTree {
 
     public void Insert(String key) {            //This is the main insert method. this program uses method overloading where this method calls the one above
         cursor = root;
-        // System.out.println("The Key: " + key + "  Its hash: " + HashGenerator(key) + "  Its parent: " + parentNode.getValue());
         BinarySearchTreeNode newnode = new BinarySearchTreeNode(key);           //creates a new node to be inserted in the BST
         BinarySearchTreeNode parentNode = FindParent(key);                      //saves the parent node of the current key
-        System.out.println("The Key: " + key + "  Its hash: " + HashGenerator(key) + "  Node number: " + newnode);
-        Insert(parentNode, newnode);            //call to the function above to insert the node to the left or right of the parent node
+        Insert(parentNode, newnode, key);            //call to the function above to insert the node to the left or right of the parent node
     }
 
-    //fix problem with recursion and not traversing with cursor correctly. EX line 68 there is no left node and hits null.
     public BinarySearchTreeNode FindParent(String key) {            //finds the parent of a node or newnode by using the current key
         if (root == null) {                                         //returns null when the BST is empty
             return null;
@@ -95,16 +104,12 @@ public class BinarySearchTree {
                 cursor = cursor.getLeftNode();
                 FindParent(key);
             }
-            // else if (cursor.getLeftNode() != null && cursor.getLeftNode().getValue().equals(key)) {      //chaining the same word when inserting goes to the last occurrence of word
-            //     cursor = cursor.getLeftNode();
-            //     FindParent(key);
-            // }
             else {
                 FindParentFlag = false;
                 return cursor;
             }
         }
-        else if (HashGenerator(key) == HashGenerator(root.getValue())) {
+        else if (HashGenerator(key) == HashGenerator(root.getValue())) {            //for finding the parent when the hash of key is equal to the hash of the root
             if (cursor.getLeftNode() != null && cursor.getLeftNode().getValue().equals(root.getValue())) {
                 cursor = cursor.getLeftNode();
                 FindParent(key);
@@ -135,6 +140,8 @@ public class BinarySearchTree {
                     cursor2 = cursor2.getLeftNode();
                 else if (h > HashGenerator(cursor2.getValue()))                 //gets the right node when the key value is greater than the current cursor value
                     cursor2 = cursor2.getRightNode();
+                else if (h == HashGenerator(cursor2.getValue()))                 //gets the right node when the key value is greater than the current cursor value
+                    cursor2 = cursor2.getLeftNode();
             }
 
             return cursor2;
@@ -158,6 +165,8 @@ public class BinarySearchTree {
                     cursor2 = cursor2.getLeftNode();
                 else if (h > HashGenerator(cursor2.getValue()))                 //gets the right node when the key value is greater than the current cursor value
                     cursor2 = cursor2.getRightNode();
+                else if (h == HashGenerator(cursor2.getValue()))                 //gets the right node when the key value is greater than the current cursor value
+                    cursor2 = cursor2.getLeftNode();
             }
 
             return count;

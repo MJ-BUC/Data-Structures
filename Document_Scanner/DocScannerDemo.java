@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 
 public class DocScannerDemo {
 
+	public DocScannerDemo() {
+		// TODO Auto-generated constructor stub
+	}
 	public static void main(String[] args) throws FileNotFoundException {
 		//testing an empty document scanner
 		System.out.print("Creating an empty Document Scanner\n");
@@ -58,7 +61,7 @@ public class DocScannerDemo {
 		myScanner.delete("reading");
 
 		System.out.print("Searching for 'alice' in the document scanner.\n");
-		System.out.print("'alice' appears " + myScanner.Search("reading") + " times.\n");
+		System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
 
 		// //running with long text file
 		System.out.print("Scanning document 'alice.txt' into document scanner.\n");
@@ -77,18 +80,18 @@ public class DocScannerDemo {
 		myScanner.PrintMaxWord();
 
 		// //testint searching
-		// System.out.print("Searching for 'alice' in the document scanner.\n");
-		// System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
-		// System.out.print("Searching for 'moment' in the document scanner.\n");
-		// System.out.print("'moment' appears " + myScanner.Search("moment") + " times.\n");
-		// System.out.print("Searching for 'CSCE' in the document scanner.\n");
-		// System.out.print("'CSCE' appears " + myScanner.Search("CSCE") + " times.\n");
-		// System.out.print("Deleting 'alice' 6 times.\n");
-		// for (int i=0; i<6; i++)
-		// 	myScanner.delete("alice");
-		// System.out.print("Searching for 'alice' in the document scanner.\n");
-		// System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
-		// System.out.print("\n");
+		System.out.print("Searching for 'alice' in the document scanner.\n");
+		System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
+		System.out.print("Searching for 'moment' in the document scanner.\n");
+		System.out.print("'moment' appears " + myScanner.Search("moment") + " times.\n");
+		System.out.print("Searching for 'CSCE' in the document scanner.\n");
+		System.out.print("'CSCE' appears " + myScanner.Search("CSCE") + " times.\n");
+		System.out.print("Deleting 'alice' 6 times.\n");
+		for (int i=0; i<6; i++)
+			myScanner.delete("alice");
+		System.out.print("Searching for 'alice' in the document scanner.\n");
+		System.out.print("'alice' appears " + myScanner.Search("alice") + " times.\n");
+		System.out.print("\n");
 
 		System.out.print("Printing Document Scanner items preorder: ");
 		myScanner.PrintPreorder();
