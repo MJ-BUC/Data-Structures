@@ -8,52 +8,52 @@ public class DocScanner {
 
     BinarySearchTree myBST;
     
-    public DocScanner(String key) {
-        myBST = new BinarySearchTree(key);
+    public DocScanner(String key) {                 //constructor for the docscanner passes the key
+        myBST = new BinarySearchTree(key);          //create BST using the key
     }
 
     public DocScanner() {
         myBST = new BinarySearchTree();
     }
 
-    public void ScanDocument(String filename) throws FileNotFoundException {
-        File file = new File(filename);
+    public void ScanDocument(String filename) throws FileNotFoundException {        //scans the documeent text file and insterts each word into the BST also hands file errors
+        File file = new File(filename);                                             //holds the text file
         try {
-        Scanner text = new Scanner(file).useDelimiter("[.\r\n ]+");
-        while (text.hasNext()) {
+        Scanner text = new Scanner(file).useDelimiter("[.\r\n ]+");                 //scans the text file and seperates using the delimiter
+        while (text.hasNext()) {                                                //loops through the words in the text and inserts theminto the BST
             String word = text.next();
             myBST.Insert(word);
         }
-        text.close();
+        text.close();                                                   //closes the text file
         } 
-        catch(FileNotFoundException e) {
+        catch(FileNotFoundException e) {                            //file error handling
             System.out.println("File not found!");
         }
     }
 
-    public String Search(String word) {
+    public String Search(String word) {                         //searches for a word in the BST by passing the word to the search method
         String foundWord = myBST.Search(word).getValue();
         return foundWord;
     }
 
-    public void delete(String word) {
+    public void delete(String word) {           //deletes an the first occurrence of a word from the BST
         myBST.Delete(word);
     }
 
-    public void PrintMaxWord() {
+    public void PrintMaxWord() {                //prints the max word aka the word with the highest occurrence
         myBST.Max_Helper();
         myBST.MaxWordCounter();
     }
 
-    public void PrintPreorder() {
+    public void PrintPreorder() {               //prints the BST in a peorder fasion
         myBST.Preorder_Helper();
     }
 
-    public void PrintInorder() {
+    public void PrintInorder() {                //prints the BST in an inorder fasion
         myBST.Inorder_Helper();
     }
 
-    public void PrintPostorder() {
+    public void PrintPostorder() {              //prints the BST in a preorder fasion
         myBST.Postorder_Helper();
     }
 }
